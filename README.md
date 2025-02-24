@@ -52,5 +52,3 @@ Este proyecto implementa funcionalidades interactivas en una página web mediant
 
 Este proyecto está bajo la licencia **MIT**, por lo que puedes modificarlo y distribuirlo libremente.  
 ```
-
-Ahora se ve más profesional y bien estructurado. 🚀 ¿Quieres que le agregue algo más? 😃
