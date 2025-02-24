@@ -16,15 +16,6 @@ Este proyecto implementa funcionalidades interactivas en una página web mediant
 
 ## 📂 Estructura del Proyecto
 
-```bash
-landingpage/
-│── index.html         # Página principal
-│── navbar.html        # Barra de navegación
-│── body.html          # Contenido principal
-│── footer.html        # Pie de página
-│── styles.css         # Estilos de la interfaz
-│── script.js          # Lógica de interacción
-└── images/            # Carpeta de imágenes
 📖 Explicación de Componentes Clave
 🏠 index.html
 El archivo principal que carga la estructura de la página, ensamblando las distintas secciones mediante <iframe> o JavaScript dinámico.
