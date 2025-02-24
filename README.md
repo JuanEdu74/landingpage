@@ -1,43 +1,57 @@
-# Proyecto Interactivo
+# 🌐 Proyecto Interactivo
 
 Este proyecto implementa funcionalidades interactivas en una página web mediante JavaScript. Incluye la gestión de elementos dinámicos y un footer interactivo.
 
-## Características
+## 📌 Características
 
-- **Cambio Dinámico de Contenido**: Los elementos con la clase `.feature-item` pueden actualizar la sección `.feature-details` cuando se hace clic en ellos.
-- **Footer Interactivo**: El footer puede mostrarse u ocultarse manualmente mediante un botón o aparecer automáticamente al final de la página.
+- ✅ **Cambio Dinámico de Contenido**: Los elementos con la clase `.feature-item` pueden actualizar la sección `.feature-details` cuando se hace clic en ellos.
+- ✅ **Footer Interactivo**: Puede mostrarse u ocultarse manualmente mediante un botón o aparecer automáticamente al final de la página.
+- ✅ **Diseño Modular**: La estructura del proyecto está dividida en archivos independientes (`navbar.html`, `body.html`, `footer.html`), facilitando la reutilización y mantenimiento del código.
 
-## Tecnologías Utilizadas
+## 🛠️ Tecnologías Utilizadas
 
-- **HTML**: Estructura de la página.
-- **CSS**: Estilizado de elementos interactivos.
-- **JavaScript**: Lógica para interacciones dinámicas.
+- 🏗️ **HTML** → Estructura de la página.
+- 🎨 **CSS** → Estilizado de elementos interactivos.
+- ⚡ **JavaScript** → Lógica para interacciones dinámicas.
 
-## Instalación y Uso
+## 📂 Estructura del Proyecto
 
-1. Clona este repositorio:
-   ```sh
-   git clone https://github.com/tu-usuario/tu-repositorio.git
-   ```
-2. Abre el archivo `index.html` en un navegador web.
+```bash
+landingpage/
+│── index.html         # Página principal
+│── navbar.html        # Barra de navegación
+│── body.html          # Contenido principal
+│── footer.html        # Pie de página
+│── styles.css         # Estilos de la interfaz
+│── script.js          # Lógica de interacción
+└── images/            # Carpeta de imágenes
+📖 Explicación de Componentes Clave
+🏠 index.html
+El archivo principal que carga la estructura de la página, ensamblando las distintas secciones mediante <iframe> o JavaScript dinámico.
 
-## Archivos Principales
+📌 navbar.html
+Contiene la barra de navegación con enlaces a diferentes secciones, permitiendo una experiencia fluida para el usuario.
 
-- `index.html` - Estructura principal de la página.
-- `styles.css` - Estilos de la interfaz.
-- `script.js` - Lógica de interacción.
+📄 body.html
+Es la sección central donde se carga el contenido principal. Su contenido puede actualizarse dinámicamente según la interacción del usuario.
 
-## Mejoras Futuras
+🔽 footer.html
+Incluye información de contacto, enlaces útiles y botones interactivos. Se muestra automáticamente al final de la página o mediante un botón.
 
-- Agregar transiciones y efectos visuales.
-- Implementar almacenamiento local para recordar estados.
-- Optimizar el código para mejorar rendimiento.
+🚀 Instalación y Uso
+Clona este repositorio:
+sh
+Copy
+Edit
+git clone https://github.com/JuanEdu74/landingpage.git
+Abre el archivo index.html en un navegador web.
+📌 Mejoras Futuras
+🎭 Agregar transiciones y efectos visuales.
+💾 Implementar almacenamiento local para recordar estados.
+🚀 Optimizar el código para mejorar rendimiento.
+👤 Autor
+📌 Desarrollado por Juan Arellano
+📚 Estudiante de Desarrollo de Software en Senati
 
-## Autor
-
-Desarrollado por **Juan Arellano**. Estudiante de Desarrollo de Software en Senati.
-
-## Licencia
-
+📜 Licencia
 Este proyecto está bajo la licencia MIT. Puedes modificarlo y distribuirlo libremente.
-
