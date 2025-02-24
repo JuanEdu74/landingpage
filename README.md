@@ -1,4 +1,4 @@
-# Proyecto Interactivo con JavaScript
+# Proyecto Interactivo
 
 Este proyecto implementa funcionalidades interactivas en una página web mediante JavaScript. Incluye la gestión de elementos dinámicos y un footer interactivo.
 
