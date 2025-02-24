@@ -20,9 +20,11 @@ Este proyecto implementa funcionalidades interactivas en una página web mediant
 ```plaintext
 📦 landingpage
 ├── 📄 index.html      # Archivo principal que carga la estructura de la página
+├── 📄 styles.css      # Archivo estético del mockup/página web
 ├── 📄 navbar.html     # Barra de navegación con enlaces a diferentes secciones
 ├── 📄 body.html       # Sección central que se actualiza dinámicamente
-└── 📄 footer.html     # Información de contacto, enlaces y botones interactivos
+├── 📄 footer.html     # Información de contacto, enlaces y botones interactivos
+└── 📄 script.ks       # Relacionado con algunas funcionalidades de la página web
 ```
 
 ## 🚀 Instalación y Uso  
