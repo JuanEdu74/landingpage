@@ -1,0 +1,855 @@
+/* Reset y estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    margin-right: auto;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.download-btn {
+    padding: 10px 20px;
+    border: 2px solid #f4a261;
+    color: #f4a261;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.download-btn:hover {
+    background-color: #f4a261;
+    color: white;
+}
+
+/* Contenido principal */
+.container {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #1D2D50;
+}
+
+p {
+    font-size: 18px;
+    color: #555;
+    margin: 20px 0;
+}
+
+.main-download-btn {
+    padding: 15px 30px;
+    background-color: #F47C20;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.main-download-btn:hover {
+    background-color: #D66918;
+}
+
+/* Sección de la tablet */
+.video-call-section {
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.tablet-image {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Sección de confianza con logos */
+.trusted-section {
+    margin: 50px auto;
+    text-align: center;
+}
+
+.trusted-text {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.highlight {
+    color: rgb(29, 5, 247);
+    font-weight: bold;
+}
+
+.logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+
+
+.logos img {
+    display: inline-block; /* Asegura que cada imagen sea visible */
+    width: auto; /* Ajusta el tamaño automáticamente */
+    max-width: 100px; /* Ajusta según el diseño */
+    margin: 10px;
+}
+
+.effect-cloud {
+    position: absolute;
+    top: 50px; /* Ajusta según necesidad */
+    left: 20px; /* Ajusta según necesidad */
+    opacity: 0.8;
+    z-index: -1; /* Para que quede detrás del contenido */
+}
+
+
+.logos img:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Ajustes para iframes */
+.iframe-navbar {
+    width: 100%;
+    height: 80px;
+    border: none;
+}
+
+.iframe-body {
+    width: 100%;
+    height: calc(100vh - 80px);
+    border: none;
+}
+
+
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .logos img {
+        width: 80px;
+    }
+
+    .tablet-image {
+        max-width: 90%;
+    }
+}
+
+.video-call-section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: 50px auto;
+}
+
+.tablet-image {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 2;
+}
+
+/* Sombra extendida debajo */
+.video-call-section::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    width: 80%;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.2);
+    filter: blur(20px);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Línea separadora */
+.section-divider {
+    display: block;
+    margin: 20px auto;
+    opacity: 0.8;
+}
+
+/* Sección de características */
+.features {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.features-description {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+/* Título con tono celeste */
+.features h2 {
+    color: #3399CC; /* Azul celeste suave */
+}
+
+/* Descripción en 2 líneas y centrada */
+.features-description {
+    color: #666;
+    font-size: 16px;
+    max-width: 600px; /* Limita el ancho del texto */
+    margin: 0 auto 30px; /* Centra y agrega espacio abajo */
+    line-height: 1.5; /* Espaciado entre líneas */
+}
+
+
+/* Diseño de la lista de características */
+.feature-list {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.feature {
+    width: 250px;
+    text-align: center;
+}
+
+/* Estilos para los íconos SVG */
+.feature-icon {
+    display: block;
+    margin: 0 auto 15px;
+    width: 50px;
+    height: 50px;
+}
+
+.why-choose-us {
+    text-align: center;
+    padding: 40px;
+    background-color: #f1f6ff; /* Fondo celeste claro */
+    border-radius: 10px;
+}
+
+.why-description {
+    max-width: 600px;
+    margin: 0 auto 20px;
+}
+
+.why-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.why-image img {
+    max-width: 350px;
+}
+
+.why-features {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 250px;
+}
+
+.feature-item {
+    background-color: #f1f6ff;
+    color: rgb(0, 0, 0);
+    padding: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, padding 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre ícono y texto */
+}
+
+.feature-item.active {
+    background-color: white;
+    color: black;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.feature-icon {
+    width: 26px;
+    height: 26px;
+    flex-shrink: 0; /* Evita que el ícono se deforme */
+}
+
+.feature-text {
+    flex: 1;
+    font-size: 14px;
+}
+
+.feature-details {
+    display: none;
+    margin-top: 10px;
+    font-size: 12px;
+    color: black;
+    padding-left: 38px; /* Alineado con el texto */
+}
+
+.feature-item.active .feature-details {
+    display: block;
+}
+
+
+/* collaboration */
+
+.collaboration-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.collaboration-content {
+    max-width: 500px;
+    z-index: 2;
+}
+
+.collaboration-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #1E1E1E;
+    margin-bottom: 15px;
+}
+
+.collaboration-text {
+    font-size: 14px;
+    color: #4F4F4F;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.collaboration-btn {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.collaboration-btn:hover {
+    background-color: #0056b3;
+}
+
+.collaboration-visual {
+    position: relative;
+    width: 400px;
+    height: 300px;
+}
+
+.background-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.chart-image, .sticker-image {
+    position: absolute;
+    z-index: 1;
+}
+
+.chart-image {
+    top: 50px;
+    right: 20px;
+    width: 250px;
+}
+
+.sticker-image {
+    bottom: 40px;
+    left: 30px;
+    width: 100px;
+    transform: rotate(-37deg);
+    position: absolute;
+}
+
+
+/* Relacionado con la parte azul*/
+
+.blue-section {
+    background-color: #002147; /* Azul oscuro */
+    color: white;
+    padding: 60px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.blue-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1100px;
+    width: 90%;
+}
+
+.blue-images {
+    position: relative;
+    width: 50%;
+}
+
+.tilted-image {
+    position: absolute;
+    width: 170px; /* Ajusta según sea necesario */
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.image-top {
+    top: -110px;
+    left: 30px;
+    transform: rotate(-10deg);
+}
+
+.image-bottom {
+    top: -110px;
+    left: 180px;
+    transform: rotate(10deg);
+}
+
+.blue-text {
+    width: 50%;
+    text-align: left;
+    
+}
+
+.blue-text h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.blue-text p {
+    font-size: 15px;
+    margin-bottom: 20px;
+    color: white;
+    font-family: 'Poppins', sans-serif; /* Cambiando solo esta fuente */
+}
+
+.blue-btn {
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.blue-btn:hover {
+    background-color: #e68900;
+}
+
+/*Relacionado con el estilo de la china*/
+.testimonial-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    background: white;
+}
+
+.testimonial-container {
+    display: flex;
+    max-width: 900px;
+    align-items: center;
+    gap: 40px;
+}
+
+.testimonial-text {
+    flex: 1;
+    position: relative;
+    color: #1C2A4D;
+}
+
+.testimonial-text p {
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* Limit to 4 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden; /* Hide extra text */
+    text-overflow: ellipsis; /* Add "..." if text overflows */
+    max-width: 600px; /* Adjust width for better control */
+    line-height: 1.4; /* Space between lines */
+}
+
+
+blockquote {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+    position: relative;
+}
+
+.quote-mark {
+    font-size: 40px;
+    color: #007bff;
+    position: relative;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    color: #5a606c;
+}
+
+.author-name {
+    font-weight: bold;
+    color: #5a606c;
+}
+
+.testimonial-author img {
+    height: 20px;
+    margin-left: 15px;
+}
+
+
+
+
+/* Estilo para la imagen y la ilustración */
+.testimonial-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 900px;
+    margin: auto;
+}
+
+
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+
+.author-text {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 10px; /* Move right by 50px */
+}
+
+
+.author-name {
+    font-weight: bold;
+    font-size: 16px;
+    display: inline-block;
+    align-self: baseline;
+}
+
+.author-title {
+    font-size: 13px;
+    color: gray;
+    display: inline-block;
+    align-self: baseline; /* Asegura que esté a la misma altura */
+}
+
+
+
+
+
+.testimonial-author::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px; /* Grosor de la línea */
+    height: 100%;
+    background-color: orange;
+}
+
+.payoneer-logo {
+    width: 70px; /* Ajusta el tamaño del logo */
+    margin-left: 100px; /* Empuja el logo a la derecha */
+    left: 100px
+}
+
+.testimonial-image {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    left: 10px
+}
+
+/* Fondo circular */
+.circle-bg {
+    width: 150px;
+    height: 150px;
+    background: #FDD6D6;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+
+/* Imagen de la mujer en formato circular */
+.woman-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: relative;
+    z-index: 2; /* Asegura que esté por encima de la ilustración */
+}
+
+/* Ilustración en formato circular, debajo de la imagen de la mujer */
+.hand-drawing {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: absolute;
+    top: 80px; /* Ajusta la posición para que esté debajo */
+    z-index: 1; /* Debe estar debajo de woman-image */
+}
+
+
+/* latest new section */
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f8f9fa;
+}
+
+/* Sección de noticias */
+.latest-news {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.latest-news h2 {
+    font-size: 28px;
+    color: #1C2A4D;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.latest-news p {
+    font-size: 16px;
+    color: #6C757D;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+/* Contenedor de las noticias */
+.news-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Para hacerlo responsivo */
+}
+
+/* Tarjetas */
+.news-item {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 320px;
+    text-align: left;
+}
+
+.news-item img {
+    width: 100%;
+    display: block;
+}
+
+/* Estilo de la tarjeta azul */
+.news-item.blue {
+    background: #007BFF;
+    color: white;
+    padding: 20px;
+    max-width: 320px;
+}
+
+.news-item.blue h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.news-item.blue p {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.news-item a {
+    display: inline-block;
+    margin-top: 10px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.news-item a:hover {
+    text-decoration: underline;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .news-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+
+/* footer */
+
+/* Estilos generales del footer */
+.footer {
+    background-color: #e0e0e0;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+}
+
+.footer-logo {
+    max-width: 150px;
+    margin-bottom: 10px;
+}
+
+.social-icons a {
+    margin: 0 5px;
+}
+
+.footer-divider {
+    margin: 20px auto;
+    width: 90%;
+    border: 1px solid #ccc;
+}
+
+.footer-copyright {
+    text-align: center; /* This ensures the copyright text is centered */
+    font-size: 14px;
+    color: #333;
+}
+
+
+/* Estilos para los enlaces */
+.footer-column h3 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin: 10px 0;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: #1e90ff;
+}
+
+/* Iconos de redes sociales */
+.social-icons {
+    margin-top: 15px;
+}
+
+.social-icons a img {
+    width: 40px;
+    margin: 0 10px;
+    transition: transform 0.3s;
+}
+
+.social-icons a img:hover {
+    transform: scale(1.2);
+}
+
+.iframe-footer {
+    width: 100%;
+    height: auto; /* Para que no tenga un tamaño fijo */
+    min-height: 400px; /* Ajusta según el contenido */
+    border: none;
+    display: block;
+}
+
