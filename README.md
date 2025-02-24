@@ -40,9 +40,6 @@ Incluye información de contacto, enlaces útiles y botones interactivos. Se mue
 
 🚀 Instalación y Uso
 Clona este repositorio:
-sh
-Copy
-Edit
 git clone https://github.com/JuanEdu74/landingpage.git
 Abre el archivo index.html en un navegador web.
 📌 Mejoras Futuras
