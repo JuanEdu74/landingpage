@@ -22,16 +22,20 @@ body {
 }
 
 .logo {
-    margin-right: auto;
+    margin-right: 550px;
 }
 
 .logo img {
-    height: 40px;
+    height: 50px;
 }
 
 .nav-links {
-    display: flex;
-    list-style: none;
+    list-style: none; /* Remove bullet points */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Arrange items horizontally */
+    justify-content: flex-start; /* Align to the left */
+    gap: 20px; /* Adds space between items */
 }
 
 .nav-links li {
@@ -40,7 +44,7 @@ body {
 
 .nav-links a {
     text-decoration: none;
-    color: #333;
+    color: #5f6170;
     font-weight: bold;
 }
 
@@ -51,6 +55,7 @@ body {
     text-decoration: none;
     font-weight: bold;
     border-radius: 5px;
+    margin-left: 45px;
 }
 
 .download-btn:hover {
@@ -58,7 +63,8 @@ body {
     color: white;
 }
 
-/* Contenido principal */
+
+/* Contenedor principal */
 .container {
     max-width: 800px;
     margin: 60px auto;
@@ -67,31 +73,41 @@ body {
 }
 
 h1 {
-    font-size: 36px;
+    font-size: 48px;
     font-weight: bold;
-    color: #1D2D50;
+    color: #0B1E57;
+    margin-bottom: 15px;
 }
 
 p {
-    font-size: 18px;
-    color: #555;
-    margin: 20px 0;
+    font-size: 13px;
+    font-weight: bold;
+    color: #7a7a7a;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+    text-align: center; /* Justificar el texto */
+    word-spacing: 1px; /* Ajustar el espacio entre palabras si es necesario */
 }
 
 .main-download-btn {
-    padding: 15px 30px;
-    background-color: #F47C20;
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background-color: #ff6c03;
     color: white;
     text-decoration: none;
     font-weight: bold;
     border-radius: 5px;
-    display: inline-block;
-    margin-top: 20px;
+    font-size: 16px;
 }
 
 .main-download-btn:hover {
     background-color: #D66918;
 }
+
+
+
 
 /* Sección de la tablet */
 .video-call-section {
@@ -113,9 +129,32 @@ p {
     text-align: center;
 }
 
+.logos img[alt="ProfitWell"] {
+    transform: scale(1.4); /* Larger */
+    opacity: 0.9; /* Adjust transparency (1 = fully visible, 0 = fully transparent) */
+}
+
+.logos img[alt="Demio"] {
+    transform: scale(1.1); /* Slightly larger */
+    opacity: 0.4;
+}
+
+.logos img[alt="ShipBob"] {
+    transform: scale(1.1); /* Slightly larger */
+    opacity: 0.4;
+}
+
+.logos img[alt="PayPal"] {
+    transform: scale(1.1); /* Medium size */
+    opacity: 0.4;
+}
+
+
+
 .trusted-text {
     font-size: 18px;
     margin-bottom: 20px;
+    color: rgb(0, 0, 0);
 }
 
 .highlight {
@@ -127,7 +166,7 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 40px;
     flex-wrap: wrap;
 }
 
@@ -218,6 +257,7 @@ p {
     display: block;
     margin: 20px auto;
     opacity: 0.8;
+    margin-top: -70px;
 }
 
 /* Sección de características */
