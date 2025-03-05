@@ -1,0 +1,75 @@
+/* Animación general para fadeIn */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  
+  .fadeIn {
+    animation: fadeIn 1s ease-out forwards;
+  }
+  
+  /* Animación para deslizar hacia arriba */
+  @keyframes slideInUp {
+    from {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .slideInUp {
+    animation: slideInUp 1s ease-out forwards;
+  }
+  
+  /* Animación para deslizar desde la izquierda */
+  @keyframes slideInLeft {
+    from {
+      transform: translateX(-50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  .slideInLeft {
+    animation: slideInLeft 1s ease-out forwards;
+  }
+  
+  /* Animación para deslizar desde la derecha */
+  @keyframes slideInRight {
+    from {
+      transform: translateX(50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  .slideInRight {
+    animation: slideInRight 1s ease-out forwards;
+  }
+  
+  /* Clases de delay: ajusta el tiempo de retardo según lo necesites */
+  .delay-0_5 { animation-delay: 0.5s; }
+  .delay-1   { animation-delay: 1s; }
+  .delay-1_5 { animation-delay: 1.5s; }
+  .delay-2   { animation-delay: 2s; }
+  .delay-2_5 { animation-delay: 2.5s; }
+  .delay-3   { animation-delay: 3s; }
+  .delay-3_5 { animation-delay: 3.5s; }
+  .delay-4   { animation-delay: 4s; }
+  .delay-5   { animation-delay: 5s; }
+  .delay-5_5 { animation-delay: 5.5s; }
+  .delay-6   { animation-delay: 6s; }
+  .delay-6_5 { animation-delay: 6.5s; }
+  .delay-7   { animation-delay: 7s; }
+  .delay-7_5 { animation-delay: 7.5s; }
+  .delay-8   { animation-delay: 8s; }
+  
