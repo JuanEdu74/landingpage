@@ -1,75 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="animations.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="animations.css" />
   <title>Startco</title>
   <style>
     /* Por defecto se muestra el contenido en inglés */
-    .lang-es { display: none; }
-    
-    
+    .lang-es {
+      display: none;
+    }
+
+    /* Estilos para el menú de idioma */
+    .language-dropdown {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 5px;
+      cursor: pointer;
+    }
+    .dropdown-selected {
+      padding: 5px;
+      border-bottom: 1px solid #ddd;
+    }
+    .dropdown-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: none;
+    }
+    .dropdown-list li {
+      padding: 5px;
+      cursor: pointer;
+    }
+    .dropdown-list li:hover {
+      background: #f0f0f0;
+    }
+
   </style>
 </head>
 <body class="fadeIn">
+
   <!-- Botón de cambio de idioma global (para el sitio) -->
-  <div class="language-dropdown fadeIn delay-0_5" style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
+  <div class="language-dropdown fadeIn delay-0_5" id="language-dropdown">
     <div class="dropdown-selected" onclick="toggleDropdown()">English</div>
-    <ul class="dropdown-list" style="list-style: none; padding: 0; margin: 0; background: #fff; border: 1px solid #ddd; position: absolute;">
-      <li style="padding: 5px; cursor: pointer;" onclick="selectLanguage('en')">English</li>
-      <li style="padding: 5px; cursor: pointer;" onclick="selectLanguage('es')">Español</li>
+    <ul class="dropdown-list">
+      <li onclick="selectLanguage('en')">English</li>
+      <li onclick="selectLanguage('es')">Español</li>
     </ul>
   </div>
-  
-  
-  
+
+
   <!-- Contenido en inglés -->
   <div id="content-en" class="lang-en fadeIn delay-1">
     <!-- Sección de introducción -->
     <div class="container slideInUp delay-1_5">
       <h1>Connect anywhere, anytime</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictum et et aliquam<br> 
-      amet, faucibus massa, euismod. Orci, purus lacus.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictum et et aliquam<br>
+        amet, faucibus massa, euismod. Orci, purus lacus.</p>
       <a href="#" class="main-download-btn">Download Now</a>
     </div>
 
     <!-- SVG del efecto de nubes -->
     <svg class="effect-cloud fadeIn delay-2" width="150" height="50" viewBox="0 0 150 50">
-      <path d="M10 30 Q 30 10, 50 30 T 90 30 T 130 30" stroke="lightblue" fill="none" stroke-width="3"/>
+      <path d="M10 30 Q 30 10, 50 30 T 90 30 T 130 30" stroke="lightblue" fill="none" stroke-width="3" />
     </svg>
 
     <!-- Sección de la tablet con videollamada -->
     <div class="video-call-section slideInUp delay-2_5">
-      <img src="images/videocall/tablet.png" alt="Video Call on Tablet" class="tablet-image slideInLeft">
+      <img src="images/videocall/tablet.png" alt="Video Call on Tablet" class="tablet-image slideInLeft" />
     </div>
 
     <!-- Sección de confianza con los logos -->
     <div class="trusted-section slideInUp delay-3">
       <p class="trusted-text">Trusted by over <span class="highlight">50,000</span> dropshippers worldwide</p>
       <div class="logos slideInUp delay-3_5">
-        <img src="images/videocall/logo1.png" alt="Demio" class="m-larger-logo">
-        <img src="images/videocall/logo2.png" alt="ShipBob" class="m-larger-logo">
-        <img src="images/videocall/logo3.png" alt="ProfitWell" class="larger-logo">
-        <img src="images/videocall/logo4.png" alt="Demio" class="m-larger-logo">
-        <img src="images/videocall/logo5.png" alt="PayPal" class="m-larger-logo">
+        <img src="images/videocall/logo1.png" alt="Demio" class="m-larger-logo" />
+        <img src="images/videocall/logo2.png" alt="ShipBob" class="m-larger-logo" />
+        <img src="images/videocall/logo3.png" alt="ProfitWell" class="larger-logo" />
+        <img src="images/videocall/logo4.png" alt="Demio" class="m-larger-logo" />
+        <img src="images/videocall/logo5.png" alt="PayPal" class="m-larger-logo" />
       </div>
     </div>
 
     <!-- Línea separadora -->
     <svg class="section-divider slideInUp delay-3_5" width="100%" height="10" viewBox="0 0 1200 10" xmlns="http://www.w3.org/2000/svg">
-      <line x1="0" y1="5" x2="1200" y2="5" stroke="#ddd" stroke-width="2"/>
+      <line x1="0" y1="5" x2="1200" y2="5" stroke="#ddd" stroke-width="2" />
     </svg>
 
     <!-- Sección de características -->
     <section class="features slideInUp delay-4">
       <h2>Check out All Features</h2>
-      <p class="features-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet there will be asapien gravida sed nisl.</p>
+      <p class="features-description">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet there will be asapien gravida sed nisl.
+      </p>
       <div class="feature-list">
         <div class="feature slideInUp delay-4_5">
           <svg class="feature-icon" width="50" height="50" viewBox="0 0 24 24" fill="none">
-            <path d="M12 3C7.03 3 3 7.03 3 12s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zM9 16h6c.55 0 1-.45 1-1s-.45-1-1-1H9c-.55 0-1 .45-1 1s.45 1 1 1zm6-4H9c-.55 0-1-.45-1-1s.45-1 1-1h6c.55 0 1 .45 1 1s-.45 1-1 1zm3-3h-2V7c0-.55-.45-1-1-1h-6c-.55 0-1 .45-1 1v2H6V7c0-1.1.9-2 2-2h8c1.1 0 2 .9 2 2v2z" fill="#00AEEF"/>
+            <path
+              d="M12 3C7.03 3 3 7.03 3 12s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zM9 16h6c.55 0 1-.45 1-1s-.45-1-1-1H9c-.55 0-1 .45-1 1s.45 1 1 1zm6-4H9c-.55 0-1-.45-1-1s.45-1 1-1h6c.55 0 1 .45 1 1s-.45 1-1 1zm3-3h-2V7c0-.55-.45-1-1-1h-6c-.55 0-1 .45-1 1v2H6V7c0-1.1.9-2 2-2h8c1.1 0 2 .9 2 2v2z"
+              fill="#00AEEF" />
           </svg>
           <h3>Audio and HD video calling</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet sapien gravida sed nisl.</p>
@@ -77,7 +112,7 @@
 
         <div class="feature slideInUp delay-4_5">
           <svg class="feature-icon" width="50" height="50" viewBox="0 0 24 24" fill="none">
-            <path d="M3 4h18v12H3zM3 20h18v-2H3zm2-6h14v2H5z" fill="#007BFF"/>
+            <path d="M3 4h18v12H3zM3 20h18v-2H3zm2-6h14v2H5z" fill="#007BFF" />
           </svg>
           <h3>Screen sharing</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet sapien gravida sed nisl.</p>
@@ -85,7 +120,7 @@
 
         <div class="feature slideInUp delay-4_5">
           <svg class="feature-icon" width="50" height="50" viewBox="0 0 24 24" fill="none">
-            <path d="M4 4h16v2H4zm0 4h10v2H4zm0 4h16v2H4zm0 4h10v2H4z" fill="#C45FDB"/>
+            <path d="M4 4h16v2H4zm0 4h10v2H4zm0 4h16v2H4zm0 4h10v2H4z" fill="#C45FDB" />
           </svg>
           <h3>Smart messaging</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet sapien gravida sed nisl.</p>
@@ -96,44 +131,54 @@
     <!-- Sección "Why Choose Us?" -->
     <section class="why-choose-us slideInUp delay-5">
       <h2>Why Choose Us?</h2>
-      <p class="why-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet there will be asapien gravida sed nisl.</p>
+      <p class="why-description">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet there will be asapien gravida sed nisl.
+      </p>
       <div class="why-content">
         <div class="why-image slideInLeft delay-5_5">
-          <img src="images/choose/video-call.png" alt="Video Call">
+          <img src="images/choose/video-call.png" alt="Video Call" />
         </div>
         <div class="why-features slideInRight delay-5_5">
           <div class="feature-item">
             <svg class="feature-icon" viewBox="0 0 24 24" fill="none">
-              <rect width="24" height="24" rx="4" fill="#00AEEF"/>
-              <path d="M15 10L19 7V17L15 14V10Z" fill="white"/>
-              <rect x="4" y="7" width="10" height="10" rx="2" fill="white"/>
+              <rect width="24" height="24" rx="4" fill="#00AEEF" />
+              <path d="M15 10L19 7V17L15 14V10Z" fill="white" />
+              <rect x="4" y="7" width="10" height="10" rx="2" fill="white" />
             </svg>
             <span class="feature-text">Video Meetings</span>
-            <div class="feature-details">Connect with people in real-time through high-quality video calls.</div>
+            <div class="feature-details">
+              Connect with people in real-time through high-quality video calls.
+            </div>
           </div>
           <div class="feature-item">
             <svg class="feature-icon" viewBox="0 0 24 24" fill="none">
-              <rect width="24" height="24" rx="4" fill="#A06CD5"/>
-              <path d="M12 3V15M8 10V15M16 10V15M4 15H20" stroke="white" stroke-width="2" stroke-linecap="round"/>
+              <rect width="24" height="24" rx="4" fill="#A06CD5" />
+              <path d="M12 3V15M8 10V15M16 10V15M4 15H20" stroke="white" stroke-width="2" stroke-linecap="round" />
             </svg>
             <span class="feature-text">Enhanced Audio</span>
-            <div class="feature-details">Crystal-clear audio with noise suppression for a better experience.</div>
+            <div class="feature-details">
+              Crystal-clear audio with noise suppression for a better experience.
+            </div>
           </div>
           <div class="feature-item">
             <svg class="feature-icon" viewBox="0 0 24 24" fill="none">
-              <rect width="24" height="24" rx="4" fill="#007BFF"/>
-              <path d="M6 15H18M6 12H12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+              <rect width="24" height="24" rx="4" fill="#007BFF" />
+              <path d="M6 15H18M6 12H12" stroke="white" stroke-width="2" stroke-linecap="round" />
             </svg>
             <span class="feature-text">Live Subtitles</span>
-            <div class="feature-details">Real-time captions for better accessibility and understanding.</div>
+            <div class="feature-details">
+              Real-time captions for better accessibility and understanding.
+            </div>
           </div>
           <div class="feature-item">
             <svg class="feature-icon" viewBox="0 0 24 24" fill="none">
-              <rect width="24" height="24" rx="4" fill="#FF5733"/>
-              <circle cx="12" cy="12" r="5" fill="white"/>
+              <rect width="24" height="24" rx="4" fill="#FF5733" />
+              <circle cx="12" cy="12" r="5" fill="white" />
             </svg>
             <span class="feature-text">Call Recording</span>
-            <div class="feature-details">Save your calls securely and revisit important conversations anytime.</div>
+            <div class="feature-details">
+              Save your calls securely and revisit important conversations anytime.
+            </div>
           </div>
         </div>
       </div>
@@ -143,19 +188,22 @@
     <section class="testimonial-section slideInUp delay-6">
       <div class="testimonial-container">
         <div class="testimonial-text">
-          <p>“Project management is the most valuable business resource we have EVER purchased. Project management is worth much more than I paid.”</p>
+          <p>
+            “Project management is the most valuable business resource we have EVER purchased.
+            Project management is worth much more than I paid.”
+          </p>
           <div class="testimonial-author">
             <div class="author-text">
               <span class="author-name">Jhon Smith</span>
               <span class="author-title">Managing director</span>
             </div>
-            <img src="images/testimonial/payoneer-logo.png" alt="Payoneer" class="payoneer-logo">
+            <img src="images/testimonial/payoneer-logo.png" alt="Payoneer" class="payoneer-logo" />
           </div>
         </div>
         <div class="testimonial-image slideInRight delay-6_5">
           <div class="circle-bg"></div>
-          <img src="images/testimonial/testimonial-image.png" alt="Testimonial Image" class="woman-image">
-          <img src="images/testimonial/illustration.png" alt="Illustration" class="hand-drawing">
+          <img src="images/testimonial/testimonial-image.png" alt="Testimonial Image" class="woman-image" />
+          <img src="images/testimonial/illustration.png" alt="Illustration" class="hand-drawing" />
         </div>
       </div>
     </section>
@@ -163,19 +211,23 @@
     <!-- Sección de latest news -->
     <section class="latest-news slideInUp delay-7">
       <h2>Latest News</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet there will be as sapien gravida sed nisl.</p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet there will be as sapien gravida sed nisl.
+      </p>
       <div class="news-container">
         <div class="news-item slideInUp delay-7_5">
-          <img src="images/latest/img1.jpg" alt="Grupo de personas trabajando">
+          <img src="images/latest/img1.jpg" alt="Grupo de personas trabajando" />
         </div>
         <div class="news-item blue slideInUp delay-8">
           <h3>Google's Page Experience Update Launching May there will 2021</h3>
           <p><strong>Cody Fisher</strong> 📅 8/30/21</p>
-          <p>Making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words...</p>
+          <p>
+            Making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words...
+          </p>
           <a href="#">Learn More →</a>
         </div>
         <div class="news-item slideInUp delay-7_5">
-          <img src="images/latest/img2.jpg" alt="Equipo colaborando en oficina">
+          <img src="images/latest/img2.jpg" alt="Equipo colaborando en oficina" />
         </div>
       </div>
     </section>
@@ -187,46 +239,61 @@
     <!-- Sección de introducción -->
     <div class="container slideInUp delay-1_5">
       <h1>Conéctate en cualquier lugar, en cualquier momento</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictum et et aliquam<br> 
-      amet, faucibus massa, euismod. Orci, purus lacus.</p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictum et et aliquam<br />
+        amet, faucibus massa, euismod. Orci, purus lacus.
+      </p>
       <a href="#" class="main-download-btn">Descargar Ahora</a>
     </div>
 
     <!-- SVG del efecto de nubes -->
     <svg class="effect-cloud fadeIn delay-2" width="150" height="50" viewBox="0 0 150 50">
-      <path d="M10 30 Q 30 10, 50 30 T 90 30 T 130 30" stroke="lightblue" fill="none" stroke-width="3"/>
+      <path d="M10 30 Q 30 10, 50 30 T 90 30 T 130 30" stroke="lightblue" fill="none" stroke-width="3" />
     </svg>
 
     <!-- Sección de la tablet con videollamada -->
     <div class="video-call-section slideInUp delay-2_5">
-      <img src="images/videocall/tablet.png" alt="Videollamada en Tablet" class="tablet-image slideInLeft">
+      <img src="images/videocall/tablet.png" alt="Videollamada en Tablet" class="tablet-image slideInLeft" />
     </div>
 
     <!-- Sección de confianza con los logos -->
     <div class="trusted-section slideInUp delay-3">
-      <p class="trusted-text">Con la confianza de más de <span class="highlight">50,000</span> dropshippers en todo el mundo</p>
+      <p class="trusted-text">
+        Con la confianza de más de <span class="highlight">50,000</span> dropshippers en todo el mundo
+      </p>
       <div class="logos slideInUp delay-3_5">
-        <img src="images/videocall/logo1.png" alt="Demio" class="m-larger-logo">
-        <img src="images/videocall/logo2.png" alt="ShipBob" class="m-larger-logo">
-        <img src="images/videocall/logo3.png" alt="ProfitWell" class="larger-logo">
-        <img src="images/videocall/logo4.png" alt="Demio" class="m-larger-logo">
-        <img src="images/videocall/logo5.png" alt="PayPal" class="m-larger-logo">
+        <img src="images/videocall/logo1.png" alt="Demio" class="m-larger-logo" />
+        <img src="images/videocall/logo2.png" alt="ShipBob" class="m-larger-logo" />
+        <img src="images/videocall/logo3.png" alt="ProfitWell" class="larger-logo" />
+        <img src="images/videocall/logo4.png" alt="Demio" class="m-larger-logo" />
+        <img src="images/videocall/logo5.png" alt="PayPal" class="m-larger-logo" />
       </div>
     </div>
 
     <!-- Línea separadora -->
-    <svg class="section-divider slideInUp delay-3_5" width="100%" height="10" viewBox="0 0 1200 10" xmlns="http://www.w3.org/2000/svg">
-      <line x1="0" y1="5" x2="1200" y2="5" stroke="#ddd" stroke-width="2"/>
+    <svg
+      class="section-divider slideInUp delay-3_5"
+      width="100%"
+      height="10"
+      viewBox="0 0 1200 10"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <line x1="0" y1="5" x2="1200" y2="5" stroke="#ddd" stroke-width="2" />
     </svg>
 
     <!-- Sección de características -->
     <section class="features slideInUp delay-4">
       <h2>Descubre todas las características</h2>
-      <p class="features-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet habrá asapien gravida sed nisl.</p>
+      <p class="features-description">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet habrá asapien gravida sed nisl.
+      </p>
       <div class="feature-list">
         <div class="feature slideInUp delay-4_5">
           <svg class="feature-icon" width="50" height="50" viewBox="0 0 24 24" fill="none">
-            <path d="M12 3C7.03 3 3 7.03 3 12s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zM9 16h6c.55 0 1-.45 1-1s-.45-1-1-1H9c-.55 0-1 .45-1 1s.45 1 1 1zm6-4H9c-.55 0-1-.45-1-1s.45-1 1-1h6c.55 0 1 .45 1 1s-.45 1-1 1zm3-3h-2V7c0-.55-.45-1-1-1h-6c-.55 0-1 .45-1 1v2H6V7c0-1.1.9-2 2-2h8c1.1 0 2 .9 2 2v2z" fill="#00AEEF"/>
+            <path
+              d="M12 3C7.03 3 3 7.03 3 12s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zM9 16h6c.55 0 1-.45 1-1s-.45-1-1-1H9c-.55 0-1 .45-1 1s.45 1 1 1zm6-4H9c-.55 0-1-.45-1-1s.45-1 1-1h6c.55 0 1 .45 1 1s-.45 1-1 1zm3-3h-2V7c0-.55-.45-1-1-1h-6c-.55 0-1 .45-1 1v2H6V7c0-1.1.9-2 2-2h8c1.1 0 2 .9 2 2v2z"
+              fill="#00AEEF"
+            />
           </svg>
           <h3>Llamadas de audio y video HD</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet sapien gravida sed nisl.</p>
@@ -234,7 +301,7 @@
 
         <div class="feature slideInUp delay-4_5">
           <svg class="feature-icon" width="50" height="50" viewBox="0 0 24 24" fill="none">
-            <path d="M3 4h18v12H3zM3 20h18v-2H3zm2-6h14v2H5z" fill="#007BFF"/>
+            <path d="M3 4h18v12H3zM3 20h18v-2H3zm2-6h14v2H5z" fill="#007BFF" />
           </svg>
           <h3>Compartir pantalla</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet sapien gravida sed nisl.</p>
@@ -242,7 +309,7 @@
 
         <div class="feature slideInUp delay-4_5">
           <svg class="feature-icon" width="50" height="50" viewBox="0 0 24 24" fill="none">
-            <path d="M4 4h16v2H4zm0 4h10v2H4zm0 4h16v2H4zm0 4h10v2H4z" fill="#C45FDB"/>
+            <path d="M4 4h16v2H4zm0 4h10v2H4zm0 4h16v2H4zm0 4h10v2H4z" fill="#C45FDB" />
           </svg>
           <h3>Mensajería inteligente</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet sapien gravida sed nisl.</p>
@@ -253,44 +320,54 @@
     <!-- Sección "¿Por qué elegirnos?" -->
     <section class="why-choose-us slideInUp delay-5">
       <h2>¿Por qué elegirnos?</h2>
-      <p class="why-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet habrá asapien gravida sed nisl.</p>
+      <p class="why-description">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet habrá asapien gravida sed nisl.
+      </p>
       <div class="why-content">
         <div class="why-image slideInLeft delay-5_5">
-          <img src="images/choose/video-call.png" alt="Videollamada">
+          <img src="images/choose/video-call.png" alt="Videollamada" />
         </div>
         <div class="why-features slideInRight delay-5_5">
           <div class="feature-item">
             <svg class="feature-icon" viewBox="0 0 24 24" fill="none">
-              <rect width="24" height="24" rx="4" fill="#00AEEF"/>
-              <path d="M15 10L19 7V17L15 14V10Z" fill="white"/>
-              <rect x="4" y="7" width="10" height="10" rx="2" fill="white"/>
+              <rect width="24" height="24" rx="4" fill="#00AEEF" />
+              <path d="M15 10L19 7V17L15 14V10Z" fill="white" />
+              <rect x="4" y="7" width="10" height="10" rx="2" fill="white" />
             </svg>
             <span class="feature-text">Reuniones de video</span>
-            <div class="feature-details">Conéctate con personas en tiempo real a través de llamadas de video de alta calidad.</div>
+            <div class="feature-details">
+              Conéctate con personas en tiempo real a través de llamadas de video de alta calidad.
+            </div>
           </div>
           <div class="feature-item">
             <svg class="feature-icon" viewBox="0 0 24 24" fill="none">
-              <rect width="24" height="24" rx="4" fill="#A06CD5"/>
-              <path d="M12 3V15M8 10V15M16 10V15M4 15H20" stroke="white" stroke-width="2" stroke-linecap="round"/>
+              <rect width="24" height="24" rx="4" fill="#A06CD5" />
+              <path d="M12 3V15M8 10V15M16 10V15M4 15H20" stroke="white" stroke-width="2" stroke-linecap="round" />
             </svg>
             <span class="feature-text">Audio mejorado</span>
-            <div class="feature-details">Audio cristalino con supresión de ruido para una mejor experiencia.</div>
+            <div class="feature-details">
+              Audio cristalino con supresión de ruido para una mejor experiencia.
+            </div>
           </div>
           <div class="feature-item">
             <svg class="feature-icon" viewBox="0 0 24 24" fill="none">
-              <rect width="24" height="24" rx="4" fill="#007BFF"/>
-              <path d="M6 15H18M6 12H12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+              <rect width="24" height="24" rx="4" fill="#007BFF" />
+              <path d="M6 15H18M6 12H12" stroke="white" stroke-width="2" stroke-linecap="round" />
             </svg>
             <span class="feature-text">Subtítulos en vivo</span>
-            <div class="feature-details">Subtítulos en tiempo real para una mejor accesibilidad y comprensión.</div>
+            <div class="feature-details">
+              Subtítulos en tiempo real para una mejor accesibilidad y comprensión.
+            </div>
           </div>
           <div class="feature-item">
             <svg class="feature-icon" viewBox="0 0 24 24" fill="none">
-              <rect width="24" height="24" rx="4" fill="#FF5733"/>
-              <circle cx="12" cy="12" r="5" fill="white"/>
+              <rect width="24" height="24" rx="4" fill="#FF5733" />
+              <circle cx="12" cy="12" r="5" fill="white" />
             </svg>
             <span class="feature-text">Grabación de llamadas</span>
-            <div class="feature-details">Guarda tus llamadas de forma segura y revisa conversaciones importantes en cualquier momento.</div>
+            <div class="feature-details">
+              Guarda tus llamadas de forma segura y revisa conversaciones importantes en cualquier momento.
+            </div>
           </div>
         </div>
       </div>
@@ -300,19 +377,22 @@
     <section class="testimonial-section slideInUp delay-6">
       <div class="testimonial-container">
         <div class="testimonial-text">
-          <p>“La gestión de proyectos es el recurso empresarial más valioso que jamás hemos adquirido. La gestión de proyectos vale mucho más de lo que pagué.”</p>
+          <p>
+            “La gestión de proyectos es el recurso empresarial más valioso que jamás hemos adquirido. La gestión de
+            proyectos vale mucho más de lo que pagué.”
+          </p>
           <div class="testimonial-author">
             <div class="author-text">
               <span class="author-name">Jhon Smith</span>
               <span class="author-title">Managing director</span>
             </div>
-            <img src="images/testimonial/payoneer-logo.png" alt="Payoneer" class="payoneer-logo">
+            <img src="images/testimonial/payoneer-logo.png" alt="Payoneer" class="payoneer-logo" />
           </div>
         </div>
         <div class="testimonial-image slideInRight delay-6_5">
           <div class="circle-bg"></div>
-          <img src="images/testimonial/testimonial-image.png" alt="Imagen de testimonio" class="woman-image">
-          <img src="images/testimonial/illustration.png" alt="Ilustración" class="hand-drawing">
+          <img src="images/testimonial/testimonial-image.png" alt="Imagen de testimonio" class="woman-image" />
+          <img src="images/testimonial/illustration.png" alt="Ilustración" class="hand-drawing" />
         </div>
       </div>
     </section>
@@ -320,19 +400,24 @@
     <!-- Sección de latest news -->
     <section class="latest-news slideInUp delay-7">
       <h2>Últimas Noticias</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet habrá as sapien gravida sed nisl.</p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet habrá as sapien gravida sed nisl.
+      </p>
       <div class="news-container">
         <div class="news-item slideInUp delay-7_5">
-          <img src="images/latest/img1.jpg" alt="Grupo de personas trabajando">
+          <img src="images/latest/img1.jpg" alt="Grupo de personas trabajando" />
         </div>
         <div class="news-item blue slideInUp delay-8">
           <h3>La actualización de la experiencia de página de Google se lanzará en mayo 2021</h3>
           <p><strong>Cody Fisher</strong> 📅 8/30/21</p>
-          <p>Haciendo de esto el primer generador verdadero en Internet. Utiliza un diccionario de más de 200 palabras latinas...</p>
+          <p>
+            Haciendo de esto el primer generador verdadero en Internet. Utiliza un diccionario de más de 200 palabras
+            latinas...
+          </p>
           <a href="#">Aprende más →</a>
         </div>
         <div class="news-item slideInUp delay-7_5">
-          <img src="images/latest/img2.jpg" alt="Equipo colaborando en oficina">
+          <img src="images/latest/img2.jpg" alt="Equipo colaborando en oficina" />
         </div>
       </div>
     </section>
@@ -340,18 +425,20 @@
   <!-- Fin del contenido en español -->
 
   <script>
-    // Funciones para el cambio de idioma global (sitio)
+    /***********************
+     * Toggle Language Menu
+     ***********************/
     function toggleDropdown() {
       const dropdownList = document.querySelector('.dropdown-list');
       dropdownList.style.display = dropdownList.style.display === 'block' ? 'none' : 'block';
     }
-  
+
     function selectLanguage(lang) {
       changeLanguage(lang);
       document.querySelector('.dropdown-selected').innerText = lang === 'en' ? 'English' : 'Español';
       document.querySelector('.dropdown-list').style.display = 'none';
     }
-  
+
     function changeLanguage(lang) {
       if (lang === 'en') {
         document.getElementById('content-en').style.display = 'block';
@@ -362,43 +449,96 @@
       }
       console.log("Idioma seleccionado (sitio): " + lang);
     }
-  
+
     window.addEventListener('click', function(e) {
-      const dropdown = document.querySelector('.language-dropdown');
+      const dropdown = document.getElementById('language-dropdown');
       if (!dropdown.contains(e.target)) {
         document.querySelector('.dropdown-list').style.display = 'none';
       }
     });
-  
-    // Lógica del chat de IA
+
+    /********************************************
+     * Toggle Chat & Toggle Language Menu (Botones)
+     ********************************************/
+    function toggleLanguageMenu() {
+      const languageMenu = document.getElementById('language-dropdown');
+      if (languageMenu.style.display === 'none') {
+        languageMenu.style.display = 'block';
+      } else {
+        languageMenu.style.display = 'none';
+      }
+    }
+
+    function toggleChat() {
+      const chatContainer = document.getElementById('chat-container');
+      if (chatContainer.style.display === 'none') {
+        chatContainer.style.display = 'block';
+      } else {
+        chatContainer.style.display = 'none';
+      }
+    }
+
+    /************************
+     * ChatGPT Integration
+     ************************/
+    // Nota: No es seguro exponer la API key en el código del cliente. Usa un servidor intermedio en producción.
+    const apiKey = "YOUR_API_KEY"; // Reemplaza con tu API key de OpenAI
+
+    async function callChatGPT(userInput) {
+      const url = "https://api.openai.com/v1/chat/completions";
+      const data = {
+        model: "gpt-3.5-turbo",
+        messages: [
+          { role: "user", content: userInput }
+        ]
+      };
+
+      try {
+        const response = await fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${apiKey}`
+          },
+          body: JSON.stringify(data)
+        });
+        const result = await response.json();
+        // Asegúrate de manejar correctamente los errores y la estructura de la respuesta
+        if (result.error) {
+          console.error("Error desde la API:", result.error);
+          return "Lo siento, ocurrió un error al procesar tu solicitud.";
+        }
+        return result.choices[0].message.content;
+      } catch (error) {
+        console.error("Error al llamar a la API de ChatGPT:", error);
+        return "Lo siento, ocurrió un error al procesar tu solicitud.";
+      }
+    }
+
     let chatLang = document.getElementById('chat-lang').value; // Idioma por defecto para el chat
-  
+
     function changeChatLanguage(lang) {
       chatLang = lang;
       console.log("Idioma seleccionado (chat): " + lang);
     }
-  
-    function sendMessage() {
+
+    async function sendMessage() {
       const input = document.getElementById('chat-input');
       const chatBox = document.getElementById('chat-box');
-      if (input.value.trim() !== "") {
-        chatBox.innerHTML += `<div><strong>You:</strong> ${input.value}</div>`;
-        setTimeout(() => {
-          chatBox.innerHTML += `<div><strong>AI:</strong> ${generateResponse(input.value)}</div>`;
-          chatBox.scrollTop = chatBox.scrollHeight;
-        }, 1000);
+      const userMessage = input.value.trim();
+
+      if (userMessage !== "") {
+        // Muestra el mensaje del usuario
+        chatBox.innerHTML += `<div><strong>You:</strong> ${userMessage}</div>`;
+
+        // Llamamos a la API de ChatGPT
+        const aiResponse = await callChatGPT(userMessage);
+
+        // Mostramos la respuesta
+        chatBox.innerHTML += `<div><strong>AI:</strong> ${aiResponse}</div>`;
+        chatBox.scrollTop = chatBox.scrollHeight;
         input.value = "";
       }
-    }
-  
-    function generateResponse(userInput) {
-      const responses = {
-        "hello": { en: "Hello! How can I assist you?", es: "¡Hola! ¿En qué puedo ayudarte?" },
-        "features": { en: "We offer HD video calling, messaging, and more!", es: "¡Ofrecemos videollamadas HD, mensajería y más!" },
-        "pricing": { en: "Our pricing plans are flexible and affordable.", es: "Nuestros planes de precios son flexibles y accesibles." }
-      };
-      return responses[userInput.toLowerCase()] ? responses[userInput.toLowerCase()][chatLang] : 
-             (chatLang === 'en' ? "I'm not sure about that." : "No estoy seguro sobre eso.");
     }
   </script>
 </body>
