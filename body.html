@@ -9,53 +9,21 @@
   <style>
     /* Por defecto se muestra el contenido en inglés */
     .lang-es { display: none; }
+    
+    
   </style>
 </head>
 <body class="fadeIn">
-  <!-- Botón de cambio de idioma con animación y posicionado en la esquina superior derecha -->
-  <div class="language-dropdown fadeIn delay-0_5">
+  <!-- Botón de cambio de idioma global (para el sitio) -->
+  <div class="language-dropdown fadeIn delay-0_5" style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
     <div class="dropdown-selected" onclick="toggleDropdown()">English</div>
-    <ul class="dropdown-list">
-      <li onclick="selectLanguage('en')">English</li>
-      <li onclick="selectLanguage('es')">Español</li>
+    <ul class="dropdown-list" style="list-style: none; padding: 0; margin: 0; background: #fff; border: 1px solid #ddd; position: absolute;">
+      <li style="padding: 5px; cursor: pointer;" onclick="selectLanguage('en')">English</li>
+      <li style="padding: 5px; cursor: pointer;" onclick="selectLanguage('es')">Español</li>
     </ul>
   </div>
   
-  <script>
-    function toggleDropdown() {
-      const dropdownList = document.querySelector('.dropdown-list');
-      dropdownList.style.display = dropdownList.style.display === 'block' ? 'none' : 'block';
-    }
   
-    function selectLanguage(lang) {
-      // Llama a la función que cambia el contenido del sitio
-      changeLanguage(lang);
-      // Actualiza el texto del botón según el idioma seleccionado
-      document.querySelector('.dropdown-selected').innerText = lang === 'en' ? 'English' : 'Español';
-      // Oculta la lista desplegable
-      document.querySelector('.dropdown-list').style.display = 'none';
-    }
-  
-    // Función de ejemplo para cambiar idioma (personaliza según tu implementación)
-    function changeLanguage(lang) {
-      if (lang === 'en') {
-        document.getElementById('content-en').style.display = 'block';
-        document.getElementById('content-es').style.display = 'none';
-      } else if (lang === 'es') {
-        document.getElementById('content-en').style.display = 'none';
-        document.getElementById('content-es').style.display = 'block';
-      }
-      console.log("Idioma seleccionado: " + lang);
-    }
-  
-    // Cierra el dropdown al hacer clic fuera de él
-    window.addEventListener('click', function(e) {
-      const dropdown = document.querySelector('.language-dropdown');
-      if (!dropdown.contains(e.target)) {
-        document.querySelector('.dropdown-list').style.display = 'none';
-      }
-    });
-  </script>
   
   <!-- Contenido en inglés -->
   <div id="content-en" class="lang-en fadeIn delay-1">
@@ -372,6 +340,18 @@
   <!-- Fin del contenido en español -->
 
   <script>
+    // Funciones para el cambio de idioma global (sitio)
+    function toggleDropdown() {
+      const dropdownList = document.querySelector('.dropdown-list');
+      dropdownList.style.display = dropdownList.style.display === 'block' ? 'none' : 'block';
+    }
+  
+    function selectLanguage(lang) {
+      changeLanguage(lang);
+      document.querySelector('.dropdown-selected').innerText = lang === 'en' ? 'English' : 'Español';
+      document.querySelector('.dropdown-list').style.display = 'none';
+    }
+  
     function changeLanguage(lang) {
       if (lang === 'en') {
         document.getElementById('content-en').style.display = 'block';
@@ -380,7 +360,45 @@
         document.getElementById('content-en').style.display = 'none';
         document.getElementById('content-es').style.display = 'block';
       }
-      console.log("Idioma seleccionado: " + lang);
+      console.log("Idioma seleccionado (sitio): " + lang);
+    }
+  
+    window.addEventListener('click', function(e) {
+      const dropdown = document.querySelector('.language-dropdown');
+      if (!dropdown.contains(e.target)) {
+        document.querySelector('.dropdown-list').style.display = 'none';
+      }
+    });
+  
+    // Lógica del chat de IA
+    let chatLang = document.getElementById('chat-lang').value; // Idioma por defecto para el chat
+  
+    function changeChatLanguage(lang) {
+      chatLang = lang;
+      console.log("Idioma seleccionado (chat): " + lang);
+    }
+  
+    function sendMessage() {
+      const input = document.getElementById('chat-input');
+      const chatBox = document.getElementById('chat-box');
+      if (input.value.trim() !== "") {
+        chatBox.innerHTML += `<div><strong>You:</strong> ${input.value}</div>`;
+        setTimeout(() => {
+          chatBox.innerHTML += `<div><strong>AI:</strong> ${generateResponse(input.value)}</div>`;
+          chatBox.scrollTop = chatBox.scrollHeight;
+        }, 1000);
+        input.value = "";
+      }
+    }
+  
+    function generateResponse(userInput) {
+      const responses = {
+        "hello": { en: "Hello! How can I assist you?", es: "¡Hola! ¿En qué puedo ayudarte?" },
+        "features": { en: "We offer HD video calling, messaging, and more!", es: "¡Ofrecemos videollamadas HD, mensajería y más!" },
+        "pricing": { en: "Our pricing plans are flexible and affordable.", es: "Nuestros planes de precios son flexibles y accesibles." }
+      };
+      return responses[userInput.toLowerCase()] ? responses[userInput.toLowerCase()][chatLang] : 
+             (chatLang === 'en' ? "I'm not sure about that." : "No estoy seguro sobre eso.");
     }
   </script>
 </body>
