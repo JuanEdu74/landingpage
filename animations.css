@@ -88,3 +88,8 @@
 .delay-7   { animation-delay: 7s; }
 .delay-7_5 { animation-delay: 7.5s; }
 .delay-8   { animation-delay: 8s; }
+
+/* Add this script to your HTML file (before closing </body> tag): */
+/*
+
+*/
