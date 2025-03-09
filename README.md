@@ -1,4 +1,8 @@
 ```md
+# 🌐 Landing Page - Website  
+
+Página Web Oficial: https://juanedu74.github.io/landingpage/
+
 # 🌐 Landing Page - Mockup  
 
 Este proyecto implementa funcionalidades interactivas en una página web mediante **HTML, CSS y JavaScript**. Incluye la gestión de elementos dinámicos y un footer interactivo.  
