@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatbot</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    /* Botón circular en la esquina inferior izquierda */
+    #chatbot-toggle {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #007bff;
+      color: white;
+      text-align: center;
+      line-height: 60px;
+      font-size: 30px;
+      cursor: pointer;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    /* Ventana del chat con apariencia de celular */
+    #chat-window {
+      position: fixed;
+      bottom: 90px;
+      left: 20px;
+      width: 300px;
+      height: 500px;
+      background-color: #fff;
+      border: 2px solid #007bff;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      display: none;
+      flex-direction: column;
+      z-index: 1000;
+    }
+    /* Cabecera del chat */
+    #chat-header {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px;
+      border-top-left-radius: 18px;
+      border-top-right-radius: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    /* Área de contenido del chat */
+    #chat-content {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+    }
+    /* Contenedor de opciones */
+    #chat-options {
+      padding: 10px;
+      border-top: 1px solid #ddd;
+    }
+    /* Botones de opción */
+    .chat-option {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      background-color: #f1f1f1;
+      border: none;
+      border-radius: 5px;
+      text-align: left;
+      cursor: pointer;
+    }
+    /* Botón de cerrar */
+    .close-btn {
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 20px;
+    }
+    /* Link de la landing page */
+    #landingpage-link {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <!-- Botón circular que actúa como toggle para el chat -->
+  <div id="chatbot-toggle">💬</div>
+
+  <!-- Ventana del chat (inicialmente oculta) -->
+  <div id="chat-window">
+    <div id="chat-header">
+      <span>ChatBot</span>
+      <span class="close-btn" id="chat-close">×</span>
+    </div>
+    <div id="chat-content">
+      <p>Bienvenido al servicio de reuniones virtuales.</p>
+    </div>
+    <div id="chat-options">
+      <button class="chat-option" onclick="selectOption('¿Cómo iniciar una reunión?')">¿Cómo iniciar una reunión?</button>
+      <button class="chat-option" onclick="selectOption('¿Cómo unirse a una reunión?')">¿Cómo unirse a una reunión?</button>
+      <button class="chat-option" onclick="selectOption('¿Cómo compartir pantalla?')">¿Cómo compartir pantalla?</button>
+      <button class="chat-option" onclick="selectOption('¿Cómo agendar una reunión?')">¿Cómo agendar una reunión?</button>
+      <button class="chat-option" onclick="selectOption('¿Qué planes y precios ofrecen?')">¿Qué planes y precios ofrecen?</button>
+    </div>
+  </div>
+
+
+
+  <script>
+    // Referencias a los elementos
+    const chatbotToggle = document.getElementById('chatbot-toggle');
+    const chatWindow = document.getElementById('chat-window');
+    const chatClose = document.getElementById('chat-close');
+    const chatContent = document.getElementById('chat-content');
+
+    // Función para mostrar/ocultar la ventana del chat
+    function toggleChat() {
+      if (chatWindow.style.display === 'none' || chatWindow.style.display === '') {
+        chatWindow.style.display = 'flex';
+      } else {
+        chatWindow.style.display = 'none';
+      }
+    }
+
+    // Eventos de click para abrir/cerrar el chat
+    chatbotToggle.addEventListener('click', toggleChat);
+    chatClose.addEventListener('click', toggleChat);
+
+    // Función para manejar la selección de opciones
+    function selectOption(optionText) {
+      // Mostrar el mensaje del usuario
+      const userMessage = document.createElement('p');
+      userMessage.style.textAlign = 'right';
+      userMessage.style.fontWeight = 'bold';
+      userMessage.textContent = optionText;
+      chatContent.appendChild(userMessage);
+      
+      // Respuesta simulada del chatbot
+      const botMessage = document.createElement('p');
+      botMessage.style.textAlign = 'left';
+      botMessage.textContent = getResponse(optionText);
+      chatContent.appendChild(botMessage);
+      
+      // Auto scroll al fondo
+      chatContent.scrollTop = chatContent.scrollHeight;
+    }
+
+    // Función para generar respuestas simuladas según la opción seleccionada
+    function getResponse(option) {
+      switch(option) {
+        case '¿Cómo iniciar una reunión?':
+          return 'Para iniciar una reunión, haz clic en "Iniciar reunión" y sigue las instrucciones en pantalla.';
+        case '¿Cómo unirse a una reunión?':
+          return 'Para unirte a una reunión, haz clic en "Unirse a reunión" e ingresa el código proporcionado.';
+        case '¿Cómo compartir pantalla?':
+          return 'Durante la reunión, haz clic en el botón de "Compartir pantalla" para mostrar tu pantalla.';
+        case '¿Cómo agendar una reunión?':
+          return 'Para agendar una reunión, selecciona la opción "Agendar reunión" y elige la fecha y hora deseadas.';
+        case '¿Qué planes y precios ofrecen?':
+          return 'Ofrecemos diversos planes para adaptarse a tus necesidades. Visita nuestra página de planes para más detalles.';
+        default:
+          return 'Lo siento, no entiendo la pregunta.';
+      }
+    }
+  </script>
+</body>
+</html>
