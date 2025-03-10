@@ -776,6 +776,18 @@ body {
     opacity: 0.9;
 }
 
+.news-item,
+.news-item h3,
+.news-item p,
+.news-item a {
+    color: white;
+}
+
+.news-item a:hover {
+    color: #ddd; /* Opcional: cambia el color del enlace al pasar el cursor */
+}
+
+
 .news-item a {
     display: inline-block;
     margin-top: 10px;
