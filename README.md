@@ -21,7 +21,6 @@ Este proyecto implementa funcionalidades interactivas en una página web mediant
 
 ## 📂 Estructura del Proyecto  
 
-```plaintext
 📦 landingpage
 ├── 📄 index.html      # Archivo principal que carga la estructura de la página
 ├── 📄 styles.css      # Archivo estético del mockup/página web
