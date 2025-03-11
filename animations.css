@@ -89,7 +89,73 @@
 .delay-7_5 { animation-delay: 7.5s; }
 .delay-8   { animation-delay: 8s; }
 
-/* Add this script to your HTML file (before closing </body> tag): */
-/*
+/* Animaciones aplicadas a la sección de colaboración */
+.collaboration-section {
+  animation: fadeIn 1s ease-out;
+}
 
-*/
+.collaboration-title {
+  animation: slideInUp 1s ease-out;
+}
+
+.collaboration-text {
+  animation: slideInLeft 1s ease-out;
+}
+
+.collaboration-btn {
+  animation: slideInRight 1s ease-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.collaboration-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.collaboration-visual {
+  animation: fadeIn 1.5s ease-out;
+}
+
+.chart-image {
+  animation: slideInUp 1.2s ease-out;
+}
+
+.sticker-image {
+  animation: slideInLeft 1.5s ease-out;
+}
+
+.background-svg {
+  animation: fadeIn 2s ease-out;
+}
+
+/* Animaciones aplicadas a la sección azul */
+.blue-section {
+  animation: fadeIn 1.2s ease-out;
+}
+
+.blue-text h2 {
+  animation: slideInUp 1s ease-out;
+}
+
+.blue-text p {
+  animation: slideInLeft 1.2s ease-out;
+}
+
+.blue-btn {
+  animation: slideInRight 1.3s ease-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blue-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.blue-images img {
+  animation: slideInUp 1.5s ease-out;
+  transition: transform 0.3s ease;
+}
+
+.blue-images img:hover {
+  transform: scale(1.05) rotate(2deg);
+}

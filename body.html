@@ -124,6 +124,8 @@
       font-size: 20px;
     }
 
+    
+
   </style>
 </head>
 <body class="fadeIn">
@@ -428,6 +430,45 @@
       </div>
     </section>
 
+
+    <!-- Collaboration, nueva sección-->
+
+    <section class="collaboration-section">
+      <div class="collaboration-content">
+          <h2 class="collaboration-title">Powering collaboration and productivity</h2>
+          <p class="collaboration-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet sapien gravida sed nisl.
+              Lacus odio enim, urna, in ut sapien sed vestibulum. Quam dui nunc, nulla mauris mattis eget aliquam.
+          </p>
+          <button class="collaboration-btn">30 days free trial</button>
+      </div>
+
+      <div class="collaboration-visual">
+          <svg class="background-svg" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+              <path d="M50 50 C100 0, 300 0, 350 50 S400 200, 300 250 Q200 300, 100 250 T50 50" fill="#FFEDD5"/>
+              <path d="M60 60 C120 10, 280 10, 340 60 S380 190, 290 240 Q190 280, 90 240 T60 60" fill="#FFA726"/>
+              <path d="M320 80 Q350 100, 340 150 T310 200" stroke="#FF6F00" stroke-width="4" fill="none"/>
+          </svg>
+          <img class="chart-image" src="images/powering/chart.png" alt="Productivity Growth Chart">
+          <img class="sticker-image" src="images/powering/sad.png" alt="Productivity Sticker">
+      </div>
+  </section>
+
+  <section class="blue-section">
+      <div class="blue-container">
+          <div class="blue-images">
+              <img src="images/productivity/tu-imagen-1.jpg" alt="Imagen 1" class="tilted-image image-top">
+              <img src="images/productivity/tu-imagen-1.jpg" alt="Imagen 2" class="tilted-image image-bottom">
+          </div>
+          <div class="blue-text">
+              <h2>Powering collaboration and productivity</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet sapien gravida sed nisl.
+                  Lacus odio enim, urna, in ut sapien sed vestibulum. Quam dui nunc, nulla mauris mattis eget aliquam.</p>
+              <button class="blue-btn">Try Startco Now!</button>
+          </div>
+      </div>
+  </section>
+
     <!-- Sección de testimonios -->
     <section class="testimonial-section slideInUp delay-6">
       <div class="testimonial-container">
@@ -616,6 +657,55 @@
         </div>
       </div>
     </section>
+
+    <!-- Sección de colaboración -->
+  <section class="collaboration-section fadeIn">
+    <div class="collaboration-content">
+      <h2 class="collaboration-title slideInUp">Powering collaboration and productivity</h2>
+      <p class="collaboration-text slideInLeft">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet sapien gravida sed nisl.
+          Lacus odio enim, urna, in ut sapien sed vestibulum. Quam dui nunc, nulla mauris mattis eget aliquam.
+      </p>
+      <button class="collaboration-btn slideInRight">30 days free trial</button>
+    </div>
+
+    <div class="collaboration-visual fadeIn">
+      <!-- Fondo abstracto en SVG -->
+      <svg class="background-svg fadeIn" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 50 C100 0, 300 0, 350 50 S400 200, 300 250 Q200 300, 100 250 T50 50" fill="#FFEDD5"/>
+        <path d="M60 60 C120 10, 280 10, 340 60 S380 190, 290 240 Q190 280, 90 240 T60 60" fill="#FFA726"/>
+        <path d="M320 80 Q350 100, 340 150 T310 200" stroke="#FF6F00" stroke-width="4" fill="none"/>
+      </svg>
+      
+      <!-- Imagen del gráfico -->
+      <img class="chart-image slideInUp" src="images/powering/chart.png" alt="Productivity Growth Chart">
+      
+      <!-- Imagen del sticker -->
+      <img class="sticker-image slideInLeft" src="images/powering/sad.png" alt="Productivity Sticker">
+    </div>
+  </section>
+
+  <!-- Sección relacionada con la parte azul -->
+  <section class="blue-section fadeIn">
+    <div class="blue-container">
+      <div class="blue-images">
+        <!-- Imágenes con animación -->
+        <img src="images/productivity/tu-imagen-1.jpg" alt="Imagen 1" class="tilted-image image-top slideInUp">
+        <img src="images/productivity/tu-imagen-1.jpg" alt="Imagen 2" class="tilted-image image-bottom slideInUp">
+      </div>
+      <div class="blue-text">
+        <h2 class="slideInUp">Powering collaboration and productivity</h2>
+        <p class="slideInLeft">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet sapien gravida sed nisl.
+          Lacus odio enim, urna, in ut sapien sed vestibulum. Quam dui nunc, nulla mauris mattis eget aliquam.
+        </p>
+        <button class="blue-btn slideInRight">Try Startco Now!</button>
+      </div>
+    </div>
+  </section>
+
+  
+
 
     <!-- Sección de testimonios -->
     <section class="testimonial-section slideInUp delay-6">
@@ -827,5 +917,32 @@
       }
     }
   </script>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      let elements = document.querySelectorAll(
+        ".fadeIn, .slideInUp, .slideInLeft, .slideInRight"
+      );
+  
+      let observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("animate");
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+  
+      elements.forEach((el) => {
+        observer.observe(el);
+      });
+    });
+  </script>
+  
+  
+
+
 </body>
 </html>
