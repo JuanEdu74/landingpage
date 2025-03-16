@@ -25,18 +25,15 @@ Este proyecto es una **Landing Page** interactiva desarrollada con **HTML, CSS y
 
 ```plaintext
 📦 landingpage
-├── 📄 index.html      # Archivo principal que carga la estructura de la página
-├── 📁 css/           # Archivos de estilos
-│   ├── styles.css    # Estilos generales
-│   ├── animations.css # Animaciones CSS
-├── 📁 js/            # Archivos de scripts
-│   ├── script.js     # Funcionalidades dinámicas
-│   ├── language.js   # Gestión de idioma
-├── 📁 components/    # Secciones de la web
-│   ├── navbar.html   # Barra de navegación
-│   ├── body.html     # Contenido principal
-│   ├── footer.html   # Pie de página
-│   ├── chatbot.html  # Chatbot interactivo
+├── index.html      # Archivo principal que carga la estructura de la página
+├── styles.css    # Estilos generales
+├── animations.css # Animaciones CSS
+├── script.js     # Funcionalidades dinámicas
+├── language.js   # Gestión de idioma
+├── navbar.html   # Barra de navegación
+├── body.html     # Contenido principal
+├── footer.html   # Pie de página
+├── chatbot.html  # Chatbot interactivo
 ├── 📁 images/        # Recursos gráficos
 └── 📄 README.md      # Documentación del proyecto
 ```
