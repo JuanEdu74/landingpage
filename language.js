@@ -43,3 +43,44 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const languageToggle = document.getElementById("language-toggle");
+
+    if (!languageToggle) return;
+
+    // Cargar idioma guardado en localStorage
+    let currentLang = localStorage.getItem("lang") || "en";
+    updateLanguage(currentLang);
+
+    languageToggle.addEventListener("click", function () {
+        currentLang = currentLang === "en" ? "es" : "en";
+        localStorage.setItem("lang", currentLang);
+        updateLanguage(currentLang);
+    });
+
+    function updateLanguage(lang) {
+        const elements = document.querySelectorAll("[data-lang]");
+        elements.forEach(el => {
+            const key = el.getAttribute("data-lang");
+            el.textContent = translations[lang][key];
+        });
+    }
+});
+
+const translations = {
+    en: {
+        "nav-home": "Home",
+        "nav-about": "About",
+        "nav-services": "Services",
+        "nav-contact": "Contact",
+        "lang-btn": "Change to Spanish"
+    },
+    es: {
+        "nav-home": "Inicio",
+        "nav-about": "Nosotros",
+        "nav-services": "Servicios",
+        "nav-contact": "Contacto",
+        "lang-btn": "Cambiar a Inglés"
+    }
+};
