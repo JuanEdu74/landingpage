@@ -199,6 +199,7 @@ p {
 }
 
 /* Ajustes para iframes */
+
 .iframe-navbar {
     width: 100%;
     height: 80px;
@@ -741,7 +742,7 @@ body {
 
 .latest-news p {
     font-size: 16px;
-    color: #ffffff;
+    color: #120f35;
     max-width: 600px;
     margin: 0 auto 30px;
 }
@@ -850,97 +851,128 @@ body {
 
 
 
-/* footer */
-
-/* Estilos generales del footer */
+/* Footer General */
 .footer {
-    background-color: #e0e0e0;
-    padding: 20px 0;
-    text-align: center;
+    width: 100%;
+    background-color: #fff; /* Fondo blanco */
+    color: #333; /* Texto gris oscuro */
+    padding: 40px 0;
+    font-family: Arial, sans-serif;
+    font-size: 14px; /* Tamaño de fuente más pequeño */
 }
 
+/* Contenedor principal del footer */
 .footer-container {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 0px;
-    max-width: 1200px;
-    margin: 0 auto;
+    justify-content: space-between; /* Espacio entre columnas */
+    align-items: flex-start;        /* Alineación superior */
+    max-width: 1200px;             /* Ancho máximo */
+    margin: 0 auto;                /* Centrado horizontal */
+    gap: 40px;                     /* Espacio entre columnas */
 }
 
+/* Columnas del footer */
 .footer-column {
-    flex: 1;
-    min-width: 100;
-    text-align: center;
+    flex: 1;          /* Las columnas se reparten equitativamente */
+    min-width: 180px; /* Ancho mínimo para columnas estrechas */
+    text-align: left;
 }
 
+/* Logo */
 .footer-logo {
-    max-width: 150px;
+    width: 110px;     /* Ajusta el tamaño del logo */
     margin-bottom: 10px;
 }
 
-.social-icons a {
-    margin: 0 5px;
-}
-
-.footer-divider {
-    margin: 20px auto;
-    width: 90%;
-    border: 1px solid #ccc;
-}
-
-.footer-copyright {
-    text-align: center; /* This ensures the copyright text is centered */
+/* Texto debajo del logo */
+.footer-column p {
     font-size: 14px;
-    color: #333;
-}
-
-
-/* Estilos para los enlaces */
-.footer-column h3 {
+    line-height: 1.4;
+    color: #555; /* Un gris un poco más claro */
+    max-width: 250px; /* Para controlar el ancho del texto */
     margin-bottom: 15px;
-    font-size: 1.5rem;
+    text-align: left;
 }
 
+/* Títulos de las secciones (Resources, Product, About...) */
+.footer-column h3 {
+    font-size: 16px;
+    color: #1f2d5a; /* Azul oscuro, similar a la referencia */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Lista de enlaces */
 .footer-column ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
-.footer-column ul li {
-    margin: 10px 0;
+.footer-column li {
+    margin-bottom: 8px;
 }
 
-.footer-column ul li a {
+.footer-column li a {
     text-decoration: none;
-    color: black;
-    font-size: 1.2rem;
-    transition: color 0.3s;
+    color: #333;
+    font-size: 14px;
 }
 
-.footer-column ul li a:hover {
-    color: #1e90ff;
+.footer-column li a:hover {
+    text-decoration: underline;
 }
 
-/* Iconos de redes sociales */
+/* Íconos sociales */
 .social-icons {
-    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Separación entre íconos */
 }
 
-.social-icons a img {
-    width: 40px;
-    margin: 0 10px;
-    transition: transform 0.3s;
+.social-icons img {
+    width: 20px;
+    height: 20px;
+    opacity: 0.7;
+    transition: opacity 0.2s;
 }
 
-.social-icons a img:hover {
-    transform: scale(1.2);
+.social-icons img:hover {
+    opacity: 1;
 }
+
+/* Línea divisoria */
+.footer-divider {
+    width: 90%;
+    margin: 30px auto;
+    border: 0;
+    height: 1px;
+    background-color: #ddd;
+}
+
+/* Copyright */
+.footer-copyright {
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.footer-copyright a {
+    color: #1f2d5a;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-column a:hover {
+    text-decoration: underline;
+}
+
 
 .iframe-footer {
     width: 100%;
     height: auto; /* Para que no tenga un tamaño fijo */
-    min-height: 400px; /* Ajusta según el contenido */
+    min-height: 330px; /* Ajusta según el contenido */
     border: none;
     display: block;
 }
