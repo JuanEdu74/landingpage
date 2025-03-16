@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
     // --- Nuevo: Activación dinámica de animaciones al hacer scroll ---
     const animElements = document.querySelectorAll(
-      ".fadeIn, .slideInUp, .slideInLeft, .slideInRight"
+      ".blue-section, .blue-text h2, .blue-text p, .blue-btn, .blue-images img, .fadeIn, .slideInUp, .slideInLeft, .slideInRight, .collaboration-section, .collaboration-title, .collaboration-text, .collaboration-btn, .blue-section, .blue-text h2, .blue-text p, .blue-btn, .tilted-image, .blue-section, .blue-text h2, .blue-text p, .blue-btn, .tilted-image"
     );
     const observerOptions = { threshold: 0.2 };
   
