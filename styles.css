@@ -450,6 +450,8 @@ p {
 .chart-image, .sticker-image {
     position: absolute;
     z-index: 1;
+    border-radius: 20px; /* Ajusta según el nivel de redondeo deseado */
+    overflow: hidden; /* Asegura que la imagen no se salga de los bordes */
 }
 
 .chart-image {
@@ -470,7 +472,7 @@ p {
 /* Relacionado con la parte azul*/
 
 .blue-section {
-    background-color: #002147; /* Azul oscuro */
+    background-color: #1e276d; /* Azul oscuro */
     color: white;
     padding: 60px 0;
     display: flex;
@@ -541,6 +543,9 @@ p {
 .blue-btn:hover {
     background-color: #e68900;
 }
+
+
+
 
 /*Relacionado con el estilo de la china*/
 .testimonial-section {
@@ -742,7 +747,7 @@ body {
 
 .latest-news p {
     font-size: 16px;
-    color: #120f35;
+    color: #55526e;
     max-width: 600px;
     margin: 0 auto 30px;
 }
