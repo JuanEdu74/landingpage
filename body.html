@@ -13,6 +13,8 @@
     }
   </style>
 </head>
+
+
 <body class="fadeIn">
 
   <script>
@@ -635,193 +637,150 @@
         </div>
       </div>
     </section>
-  </div>
   <!-- Fin del contenido en español -->
 
   <script>
-    /***********************
-     * Toggle Language Menu
-     ***********************/
-     function toggleDropdown() {
-      const dropdownList = document.querySelector('.dropdown-list');
-      dropdownList.style.display = dropdownList.style.display === 'block' ? 'none' : 'block';
-    }
+    document.addEventListener("DOMContentLoaded", function () {
+        console.log("✅ language.js cargado correctamente");
 
-    // Modified to also update chatbot language
-    function selectLanguage(lang) {
-      changeLanguage(lang);
-      document.querySelector('.dropdown-selected').innerText = lang === 'en' ? 'English' : 'Español';
-      document.querySelector('.dropdown-list').style.display = 'none';
-      updateChatbotLanguage(lang);
-    }
-
-    // Function to update the chatbot based on selected language
-    function updateChatbotLanguage(lang) {
-    // Diccionario de preguntas en ambos idiomas
-    const questions = {
-      en: [
-        "What is your name?",
-        "How can I contact support?",
-        "Where is your office located?"
-      ],
-      es: [
-        "¿Cuál es tu nombre?",
-        "¿Cómo puedo contactar con soporte?",
-        "¿Dónde está ubicada su oficina?"
-      ]
-    };
-
-    // Cambiar el título del chatbot
-    document.getElementById('chat-title').innerText = lang === 'en' ? 'ChatBot' : 'ChatBot';
-
-    // Cambiar el mensaje de bienvenida
-    document.getElementById('welcome-message').innerText = lang === 'en' 
-      ? "Hello! How can I assist you today?" 
-      : "¡Hola! ¿Cómo puedo ayudarte hoy?";
-
-    // Obtener la lista de opciones
-    const chatOptions = document.getElementById('chat-options');
-    chatOptions.innerHTML = ""; // Limpiar opciones anteriores
-
-    // Agregar nuevas opciones en el idioma seleccionado
-    questions[lang].forEach((question) => {
-      const option = document.createElement("div");
-      option.classList.add("chat-option");
-      option.innerText = question;
-      chatOptions.appendChild(option);
+        const savedLanguage = localStorage.getItem("preferredLanguage") || "en";
+        applyLanguage(savedLanguage);
     });
 
-    console.log("Chatbot language updated to: " + lang);
+    /***********************
+     * 🔹 Toggle Language Menu
+     ***********************/
+    function toggleDropdown() {
+        const dropdownList = document.querySelector(".dropdown-list");
+        dropdownList.style.display = dropdownList.style.display === "block" ? "none" : "block";
+    }
+
+    function selectLanguage(lang) {
+        localStorage.setItem("preferredLanguage", lang);
+        applyLanguage(lang);
+        document.querySelector(".dropdown-selected").innerText = lang === "en" ? "English" : "Español";
+        document.querySelector(".dropdown-list").style.display = "none";
+        updateChatbotLanguage(lang);
+    }
+
+    function applyLanguage(lang) {
+    document.documentElement.lang = lang;
+
+    // Mostrar/ocultar contenido según el idioma
+    document.getElementById("content-en").style.display = lang === "en" ? "block" : "none";
+    document.getElementById("content-es").style.display = lang === "es" ? "block" : "none";
+
+    // ✅ Actualizar el texto del botón del selector de idioma
+    document.querySelector(".dropdown-selected").innerText = lang === "en" ? "English" : "Español";
+
+    console.log("🌍 Idioma aplicado correctamente: " + lang);
   }
 
 
-    function changeLanguage(lang) {
-      if (lang === 'en') {
-        document.getElementById('content-en').style.display = 'block';
-        document.getElementById('content-es').style.display = 'none';
-      } else if (lang === 'es') {
-        document.getElementById('content-en').style.display = 'none';
-        document.getElementById('content-es').style.display = 'block';
-      }
-      console.log("Idioma seleccionado (sitio): " + lang);
-    }
+    function updateChatbotLanguage(lang) {
+        const questions = {
+            en: ["What is your name?", "How can I contact support?", "Where is your office located?"],
+            es: ["¿Cuál es tu nombre?", "¿Cómo puedo contactar con soporte?", "¿Dónde está ubicada su oficina?"]
+        };
 
-    window.addEventListener('click', function(e) {
-      const dropdown = document.getElementById('language-dropdown');
-      if (!dropdown.contains(e.target)) {
-        document.querySelector('.dropdown-list').style.display = 'none';
-      }
-    });
+        document.getElementById("chat-title").innerText = "ChatBot";
+        document.getElementById("welcome-message").innerText = lang === "en"
+            ? "Hello! How can I assist you today?"
+            : "¡Hola! ¿Cómo puedo ayudarte hoy?";
 
-    /********************************************
-     * Toggle Chat & Toggle Language Menu (Botones)
-     ********************************************/
-    function toggleLanguageMenu() {
-      const languageMenu = document.getElementById('language-dropdown');
-      if (languageMenu.style.display === 'none') {
-        languageMenu.style.display = 'block';
-      } else {
-        languageMenu.style.display = 'none';
-      }
-    }
+        const chatOptions = document.getElementById("chat-options");
+        chatOptions.innerHTML = "";
+        questions[lang].forEach((question) => {
+            const option = document.createElement("div");
+            option.classList.add("chat-option");
+            option.innerText = question;
+            chatOptions.appendChild(option);
+        });
 
-    function toggleChat() {
-      const chatContainer = document.getElementById('chat-container');
-      if (chatContainer.style.display === 'none') {
-        chatContainer.style.display = 'block';
-      } else {
-        chatContainer.style.display = 'none';
-      }
+        console.log("💬 Chatbot actualizado a: " + lang);
     }
 
     /************************
-     * ChatGPT Integration
+     * 🔹 Cerrar menú de idioma al hacer clic fuera
      ************************/
-    // Nota: No es seguro exponer la API key en el código del cliente. Usa un servidor intermedio en producción.
-    const apiKey = "YOUR_API_KEY"; // Reemplaza con tu API key de OpenAI
-
-    async function callChatGPT(userInput) {
-      const url = "https://api.openai.com/v1/chat/completions";
-      const data = {
-        model: "gpt-3.5-turbo",
-        messages: [
-          { role: "user", content: userInput }
-        ]
-      };
-
-      try {
-        const response = await fetch(url, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${apiKey}`
-          },
-          body: JSON.stringify(data)
-        });
-        const result = await response.json();
-        // Asegúrate de manejar correctamente los errores y la estructura de la respuesta
-        if (result.error) {
-          console.error("Error desde la API:", result.error);
-          return "Lo siento, ocurrió un error al procesar tu solicitud.";
+    window.addEventListener("click", function (e) {
+        const dropdown = document.getElementById("language-dropdown");
+        if (!dropdown.contains(e.target)) {
+            document.querySelector(".dropdown-list").style.display = "none";
         }
-        return result.choices[0].message.content;
-      } catch (error) {
-        console.error("Error al llamar a la API de ChatGPT:", error);
-        return "Lo siento, ocurrió un error al procesar tu solicitud.";
-      }
+    });
+
+    /************************
+     * 🔹 Toggle Chat y Menú de Idioma
+     ************************/
+    function toggleLanguageMenu() {
+        const languageMenu = document.getElementById("language-dropdown");
+        languageMenu.style.display = languageMenu.style.display === "none" ? "block" : "none";
     }
 
-    let chatLang = document.getElementById('chat-lang').value; // Idioma por defecto para el chat
+    function toggleChat() {
+        const chatContainer = document.getElementById("chat-container");
+        chatContainer.style.display = chatContainer.style.display === "none" ? "block" : "none";
+    }
 
-    function changeChatLanguage(lang) {
-      chatLang = lang;
-      console.log("Idioma seleccionado (chat): " + lang);
+    /************************
+     * 🔹 Integración con ChatGPT (Optimizada)
+     ************************/
+    const apiKey = "YOUR_API_KEY"; // ⚠ Reemplaza con tu clave de OpenAI
+
+    async function callChatGPT(userInput) {
+        const url = "https://api.openai.com/v1/chat/completions";
+        const data = {
+            model: "gpt-3.5-turbo",
+            messages: [{ role: "user", content: userInput }]
+        };
+
+        try {
+            const response = await fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${apiKey}`
+                },
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+            if (result.error) {
+                console.error("❌ Error desde la API:", result.error);
+                return "Lo siento, ocurrió un error al procesar tu solicitud.";
+            }
+            return result.choices[0].message.content;
+        } catch (error) {
+            console.error("❌ Error al llamar a la API de ChatGPT:", error);
+            return "Lo siento, ocurrió un error al procesar tu solicitud.";
+        }
     }
 
     async function sendMessage() {
-      const input = document.getElementById('chat-input');
-      const chatBox = document.getElementById('chat-box');
-      const userMessage = input.value.trim();
+        const input = document.getElementById("chat-input");
+        const chatBox = document.getElementById("chat-box");
+        const userMessage = input.value.trim();
 
-      if (userMessage !== "") {
-        // Muestra el mensaje del usuario
-        chatBox.innerHTML += `<div><strong>You:</strong> ${userMessage}</div>`;
-
-        // Llamamos a la API de ChatGPT
-        const aiResponse = await callChatGPT(userMessage);
-
-        // Mostramos la respuesta
-        chatBox.innerHTML += `<div><strong>AI:</strong> ${aiResponse}</div>`;
-        chatBox.scrollTop = chatBox.scrollHeight;
-        input.value = "";
-      }
+        if (userMessage !== "") {
+            chatBox.innerHTML += `<div><strong>You:</strong> ${userMessage}</div>`;
+            const aiResponse = await callChatGPT(userMessage);
+            chatBox.innerHTML += `<div><strong>AI:</strong> ${aiResponse}</div>`;
+            chatBox.scrollTop = chatBox.scrollHeight;
+            input.value = "";
+        }
     }
+
+    // Exponer funciones globalmente
+    window.selectLanguage = selectLanguage;
+    window.toggleDropdown = toggleDropdown;
+    window.toggleChat = toggleChat;
   </script>
-  
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      let elements = document.querySelectorAll(
-        ".fadeIn, .slideInUp, .slideInLeft, .slideInRight"
-      );
-  
-      let observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("animate");
-            }
-          });
-        },
-        { threshold: 0.2 }
-      );
-  
-      elements.forEach((el) => {
-        observer.observe(el);
-      });
-    });
-  </script>
+
+ 
   
   
+
 
 
 </body>
