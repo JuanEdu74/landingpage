@@ -6,34 +6,40 @@ document.addEventListener("DOMContentLoaded", function () {
     const savedLanguage = localStorage.getItem("preferredLanguage") || "en";
     applyLanguage(savedLanguage);
 
-    // Función para alternar el menú desplegable
     window.toggleDropdown = function () {
         dropdownList.classList.toggle("show");
     };
 
-    // Función para seleccionar el idioma y guardarlo en localStorage
     window.selectLanguage = function (lang) {
         localStorage.setItem("preferredLanguage", lang);
         applyLanguage(lang);
         dropdownList.classList.remove("show");
+
+        // Enviar el cambio de idioma a navbar y footer
+        document.querySelector(".iframe-navbar").contentWindow.postMessage({ language: lang }, "*");
+        document.querySelector(".iframe-footer").contentWindow.postMessage({ language: lang }, "*");
     };
 
-    // Aplicar el idioma en el contenido de la página
     function applyLanguage(lang) {
         document.documentElement.lang = lang;
         dropdownSelected.textContent = lang === "en" ? "English" : "Español";
 
-        // Mostrar el contenido correcto según el idioma
-        document.getElementById("content-en").style.display = lang === "en" ? "block" : "none";
-        document.getElementById("content-es").style.display = lang === "es" ? "block" : "none";
+        const contentEn = document.getElementById("content-en");
+        const contentEs = document.getElementById("content-es");
+        if (contentEn && contentEs) {
+            contentEn.style.display = lang === "en" ? "block" : "none";
+            contentEs.style.display = lang === "es" ? "block" : "none";
+        }
 
-        // Actualizar chatbot
-        updateChatbotLanguage(lang);
+        // Enviar mensaje a los iframes para actualizar navbar y footer
+        if (window.parent) {
+            window.parent.postMessage({ language: lang }, "*");
+        }
     }
 
-    function updateChatbotLanguage(lang) {
-        document.getElementById("chat-title").textContent = lang === "en" ? "ChatBot" : "ChatBot";
-        document.getElementById("welcome-en").style.display = lang === "en" ? "block" : "none";
-        document.getElementById("welcome-es").style.display = lang === "es" ? "block" : "none";
-    }
+    window.addEventListener("message", function (event) {
+        if (event.data.language) {
+            applyLanguage(event.data.language);
+        }
+    });
 });

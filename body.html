@@ -54,134 +54,9 @@
   </div>
 
 
-  <!-- Chatbot -->
-<div id="chatbot-container">
-  <div id="chatbot-toggle">💬</div>
-  <div id="chat-window">
-    <div id="chat-header">
-      <span id="chat-title">ChatBot</span>
-      <span class="close-btn" id="chat-close">×</span>
-    </div>
-    <div id="chat-content">
-      <p id="welcome-en">Welcome to our virtual meeting service.</p>
-      <p id="welcome-es" style="display: none;">Bienvenido al servicio de reuniones virtuales.</p>
-    </div>
-    <div id="chat-options">
-      <!-- Opciones se llenarán dinámicamente -->
-    </div>
-    <button id="toggle-language">English</button>
-  </div>
-</div>
+  
 
-<script>
-  const chatbotToggle = document.getElementById('chatbot-toggle');
-  const chatWindow = document.getElementById('chat-window');
-  const chatClose = document.getElementById('chat-close');
-  const chatContent = document.getElementById('chat-content');
-  const chatOptions = document.getElementById('chat-options');
-  const toggleLanguageBtn = document.getElementById('toggle-language');
-  const languageDropdown = document.getElementById('language-dropdown');
-  const dropdownSelected = document.querySelector('.dropdown-selected');
-  const dropdownList = document.querySelector('.dropdown-list');
 
-  let currentLanguage = 'en';
-
-  const options = {
-    en: [
-      "How to start a meeting?",
-      "How to join a meeting?",
-      "How to share my screen?",
-      "How to schedule a meeting?",
-      "What plans and prices do you offer?"
-    ],
-    es: [
-      "¿Cómo iniciar una reunión?",
-      "¿Cómo unirse a una reunión?",
-      "¿Cómo compartir pantalla?",
-      "¿Cómo agendar una reunión?",
-      "¿Qué planes y precios ofrecen?"
-    ]
-  };
-
-  const responses = {
-    en: {
-      "How to start a meeting?": "Click 'Start Meeting' and follow the instructions.",
-      "How to join a meeting?": "Click 'Join Meeting' and enter the code.",
-      "How to share my screen?": "During the meeting, click 'Share Screen'.",
-      "How to schedule a meeting?": "Select 'Schedule Meeting' and choose a date and time.",
-      "What plans and prices do you offer?": "Check our plans section for more details."
-    },
-    es: {
-      "¿Cómo iniciar una reunión?": "Haz clic en 'Iniciar reunión' y sigue las instrucciones.",
-      "¿Cómo unirse a una reunión?": "Haz clic en 'Unirse a reunión' e ingresa el código.",
-      "¿Cómo compartir pantalla?": "Durante la reunión, haz clic en 'Compartir pantalla'.",
-      "¿Cómo agendar una reunión?": "Selecciona 'Agendar reunión' y elige fecha y hora.",
-      "¿Qué planes y precios ofrecen?": "Consulta nuestra sección de planes para más detalles."
-    }
-  };
-
-  function loadChatOptions() {
-    chatOptions.innerHTML = '';
-    options[currentLanguage].forEach(option => {
-      const button = document.createElement('button');
-      button.classList.add('chat-option');
-      button.textContent = option;
-      button.onclick = () => selectOption(option);
-      chatOptions.appendChild(button);
-    });
-  }
-
-  function selectOption(optionText) {
-    const userMessage = document.createElement('p');
-    userMessage.style.textAlign = 'right';
-    userMessage.style.fontWeight = 'bold';
-    userMessage.textContent = optionText;
-    chatContent.appendChild(userMessage);
-
-    const botMessage = document.createElement('p');
-    botMessage.style.textAlign = 'left';
-    botMessage.textContent = responses[currentLanguage][optionText] || "I'm sorry, I don't understand the question.";
-    chatContent.appendChild(botMessage);
-
-    chatContent.scrollTop = chatContent.scrollHeight;
-  }
-
-  function toggleDropdown() {
-    dropdownList.style.display = dropdownList.style.display === 'block' ? 'none' : 'block';
-  }
-
-  function selectLanguage(lang) {
-    currentLanguage = lang;
-    document.getElementById('welcome-en').style.display = currentLanguage === 'en' ? 'block' : 'none';
-    document.getElementById('welcome-es').style.display = currentLanguage === 'es' ? 'block' : 'none';
-    toggleLanguageBtn.textContent = currentLanguage === 'en' ? 'Español' : 'English';
-    dropdownSelected.textContent = currentLanguage === 'en' ? 'English' : 'Español';
-    dropdownList.style.display = 'none';
-    loadChatOptions();
-  }
-
-  toggleLanguageBtn.addEventListener('click', () => {
-    selectLanguage(currentLanguage === 'en' ? 'es' : 'en');
-  });
-
-  chatbotToggle.addEventListener('click', () => {
-    chatWindow.style.display = chatWindow.style.display === 'none' || chatWindow.style.display === '' ? 'flex' : 'none';
-  });
-
-  chatClose.addEventListener('click', () => {
-    chatWindow.style.display = 'none';
-  });
-
-  window.addEventListener('scroll', () => {
-    const footer = document.querySelector('footer');
-    const chatbotContainer = document.getElementById('chatbot-container');
-    if (!footer) return;
-    const footerRect = footer.getBoundingClientRect();
-    chatbotContainer.style.display = footerRect.top < window.innerHeight ? 'none' : 'block';
-  });
-
-  loadChatOptions();
-</script>
 
 
 
@@ -544,49 +419,49 @@
     </section>
 
     <!-- Sección de colaboración -->
-  <section class="collaboration-section slideInUp delay-5">
-    <div class="collaboration-content">
-        <h2 class="collaboration-title slideInUp">Impulsando la colaboración y la productividad</h2>
-        <p class="collaboration-text slideInLeft">
+    <section class="collaboration-section slideInUp delay-5">
+      <div class="collaboration-content">
+          <h2 class="collaboration-title slideInUp">Impulsando la colaboración y la productividad</h2>
+          <p class="collaboration-text slideInLeft">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet sapien gravida sed nisl.
+              Lacus odio enim, urna, in ut sapien sed vestibulum. Quam dui nunc, nulla mauris mattis eget aliquam.
+          </p>
+          <button class="collaboration-btn slideInRight">Prueba gratuita por 30 días</button>
+      </div>
+
+      <div class="collaboration-visual">
+          <svg class="background-svg" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+              <path d="M50 50 C100 0, 300 0, 350 50 S400 200, 300 250 Q200 300, 100 250 T50 50" fill="#FFEDD5"/>
+              <path d="M60 60 C120 10, 280 10, 340 60 S380 190, 290 240 Q190 280, 90 240 T60 60" fill="#FFA726"/>
+              <path d="M320 80 Q350 100, 340 150 T310 200" stroke="#FF6F00" stroke-width="4" fill="none"/>
+          </svg>
+          <img class="chart-image slideInUp" src="images/powering/chart.png" alt="Crecimiento de Productividad">
+          <img class="sticker-image slideInUp" src="images/powering/sad.png" alt="Sticker de Productividad">
+      </div>
+    </section>
+    
+
+    <!-- Sección relacionada con la parte azul -->
+    <section class="blue-section fadeIn">
+      <div class="blue-container">
+        <div class="blue-images">
+          <!-- Imágenes con animación -->
+          <img src="images/productivity/tu-imagen-1.jpg" alt="Imagen 1" class="tilted-image image-top slideInUp">
+          <img src="images/productivity/tu-imagen-1.jpg" alt="Imagen 2" class="tilted-image image-bottom slideInUp">
+        </div>
+        <div class="blue-text">
+          <h2 class="slideInUp">Impulsando la colaboración y la productividad</h2>
+          <p class="slideInLeft">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet sapien gravida sed nisl.
             Lacus odio enim, urna, in ut sapien sed vestibulum. Quam dui nunc, nulla mauris mattis eget aliquam.
-        </p>
-        <button class="collaboration-btn slideInRight">Prueba gratuita por 30 días</button>
-    </div>
-
-    <div class="collaboration-visual">
-        <svg class="background-svg" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-            <path d="M50 50 C100 0, 300 0, 350 50 S400 200, 300 250 Q200 300, 100 250 T50 50" fill="#FFEDD5"/>
-            <path d="M60 60 C120 10, 280 10, 340 60 S380 190, 290 240 Q190 280, 90 240 T60 60" fill="#FFA726"/>
-            <path d="M320 80 Q350 100, 340 150 T310 200" stroke="#FF6F00" stroke-width="4" fill="none"/>
-        </svg>
-        <img class="chart-image slideInUp" src="images/powering/chart.png" alt="Crecimiento de Productividad">
-        <img class="sticker-image slideInUp" src="images/powering/sad.png" alt="Sticker de Productividad">
-    </div>
-  </section>
-  
-
-  <!-- Sección relacionada con la parte azul -->
-  <section class="blue-section fadeIn">
-    <div class="blue-container">
-      <div class="blue-images">
-        <!-- Imágenes con animación -->
-        <img src="images/productivity/tu-imagen-1.jpg" alt="Imagen 1" class="tilted-image image-top slideInUp">
-        <img src="images/productivity/tu-imagen-1.jpg" alt="Imagen 2" class="tilted-image image-bottom slideInUp">
+          </p>
+          <button class="blue-btn slideInRight">¡Prueba Startco ahora!</button>
+        </div>
       </div>
-      <div class="blue-text">
-        <h2 class="slideInUp">Impulsando la colaboración y la productividad</h2>
-        <p class="slideInLeft">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet sapien gravida sed nisl.
-          Lacus odio enim, urna, in ut sapien sed vestibulum. Quam dui nunc, nulla mauris mattis eget aliquam.
-        </p>
-        <button class="blue-btn slideInRight">¡Prueba Startco ahora!</button>
-      </div>
-    </div>
-  </section>
+    </section>
 
 
-  
+    
 
 
     <!-- Sección de testimonios -->
@@ -637,7 +512,122 @@
         </div>
       </div>
     </section>
+  </div>
   <!-- Fin del contenido en español -->
+
+
+<!-- Chatbot -->
+<div id="chatbot-container">
+  <div id="chatbot-toggle">💬</div>
+  <div id="chat-window">
+    <div id="chat-header">
+      <span id="chat-title">ChatBot</span>
+      <span class="close-btn" id="chat-close">×</span>
+    </div>
+    <div id="chat-content">
+      <p id="welcome-en">Welcome to our virtual meeting service.</p>
+      <p id="welcome-es" style="display: none;">Bienvenido al servicio de reuniones virtuales.</p>
+    </div>
+    <div id="chat-options">
+      <!-- Opciones se llenarán dinámicamente -->
+    </div>
+    <button id="toggle-language">English</button>
+  </div>
+</div>
+
+  <script>
+      document.addEventListener("DOMContentLoaded", function () {
+      console.log("✅ Chatbot cargado correctamente");
+
+      const chatbotToggle = document.getElementById("chatbot-toggle");
+      const chatWindow = document.getElementById("chat-window");
+      const chatClose = document.getElementById("chat-close");
+      const chatContent = document.getElementById("chat-content");
+      const chatOptions = document.getElementById("chat-options");
+      const toggleLanguageBtn = document.getElementById("toggle-language");
+
+      let currentLanguage = localStorage.getItem("preferredLanguage") || "en";
+
+      const options = {
+          en: [
+              "How to start a meeting?",
+              "How to join a meeting?",
+              "How to share my screen?",
+              "How to schedule a meeting?",
+              "What plans and prices do you offer?"
+          ],
+          es: [
+              "¿Cómo iniciar una reunión?",
+              "¿Cómo unirse a una reunión?",
+              "¿Cómo compartir pantalla?",
+              "¿Cómo agendar una reunión?",
+              "¿Qué planes y precios ofrecen?"
+          ]
+      };
+
+      const responses = {
+          en: {
+              "How to start a meeting?": "Click 'Start Meeting' and follow the instructions.",
+              "How to join a meeting?": "Click 'Join Meeting' and enter the code.",
+              "How to share my screen?": "During the meeting, click 'Share Screen'.",
+              "How to schedule a meeting?": "Select 'Schedule Meeting' and choose a date and time.",
+              "What plans and prices do you offer?": "Check our plans section for more details."
+          },
+          es: {
+              "¿Cómo iniciar una reunión?": "Haz clic en 'Iniciar reunión' y sigue las instrucciones.",
+              "¿Cómo unirse a una reunión?": "Haz clic en 'Unirse a reunión' e ingresa el código.",
+              "¿Cómo compartir pantalla?": "Durante la reunión, haz clic en 'Compartir pantalla'.",
+              "¿Cómo agendar una reunión?": "Selecciona 'Agendar reunión' y elige fecha y hora.",
+              "¿Qué planes y precios ofrecen?": "Consulta nuestra sección de planes para más detalles."
+          }
+      };
+
+      function loadChatOptions() {
+          chatOptions.innerHTML = '';
+          options[currentLanguage].forEach(option => {
+              const button = document.createElement("button");
+              button.classList.add("chat-option");
+              button.textContent = option;
+              button.onclick = () => selectOption(option);
+              chatOptions.appendChild(button);
+          });
+      }
+
+      function selectOption(optionText) {
+          chatContent.innerHTML += `<p style='text-align:right; font-weight:bold;'>${optionText}</p>`;
+          chatContent.innerHTML += `<p style='text-align:left;'>${responses[currentLanguage][optionText] || "I'm sorry, I don't understand the question."}</p>`;
+          chatContent.scrollTop = chatContent.scrollHeight;
+      }
+
+      function toggleLanguage() {
+          currentLanguage = currentLanguage === "en" ? "es" : "en";
+          localStorage.setItem("preferredLanguage", currentLanguage);
+          document.getElementById("welcome-en").style.display = currentLanguage === "en" ? "block" : "none";
+          document.getElementById("welcome-es").style.display = currentLanguage === "es" ? "block" : "none";
+          toggleLanguageBtn.textContent = currentLanguage === "en" ? "Español" : "English";
+          loadChatOptions();
+      }
+
+      chatbotToggle.addEventListener("click", () => {
+          chatWindow.style.display = chatWindow.style.display === "none" || chatWindow.style.display === "" ? "flex" : "none";
+      });
+
+      chatClose.addEventListener("click", () => {
+          chatWindow.style.display = "none";
+      });
+
+      toggleLanguageBtn.addEventListener("click", toggleLanguage);
+
+      window.addEventListener("scroll", () => {
+          const footer = document.querySelector("footer");
+          if (!footer) return;
+          document.getElementById("chatbot-container").style.display = footer.getBoundingClientRect().top < window.innerHeight ? "none" : "block";
+      });
+
+      loadChatOptions();
+  });
+
+  </script>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -775,7 +765,7 @@
     window.selectLanguage = selectLanguage;
     window.toggleDropdown = toggleDropdown;
     window.toggleChat = toggleChat;
-  </script>
+    </script>
 
  
   
